@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BlogPosts from '../components/BlogPosts';
+---
+
+<Layout title="Writing | Portfolio">
+  <div class="max-w-2xl mx-auto">
+    <BlogPosts client:load />
+  </div>
+</Layout>

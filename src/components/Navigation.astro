@@ -1,0 +1,44 @@
+---
+import ThemeToggle from './ThemeToggle';
+import MobileMenu from './MobileMenu';
+import MaydLogo from '../assets/mayd-logo.svg?url';
+
+const navItems = [
+  { href: '/about', label: 'About' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/writing', label: 'Writing' },
+];
+---
+
+<header class="sticky top-0 z-40 border-b border-primary/10 bg-background/80 dark:bg-dark-background/80 backdrop-blur-sm">
+  <nav class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+    <div>
+      <a href="/" class="block">
+        <img 
+          src={MaydLogo} 
+          alt="MAYD Logo" 
+          class="text-primary dark:text-dark-text"
+          style="height: 72px; width: auto; filter: var(--svg-filter);"
+        />
+      </a>
+    </div>
+
+    <div class="flex items-center gap-8">
+      <div class="hidden md:flex gap-8">
+        {navItems.map(({ href, label }) => (
+          <a
+            href={href}
+            class="text-primary dark:text-dark-text hover:text-secondary dark:hover:text-dark-accent transition-colors"
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+      <div class="flex items-center gap-4">
+        <ThemeToggle client:load />
+      </div>
+    </div>
+  </nav>
+</header>
+
+<MobileMenu client:load items={navItems} />

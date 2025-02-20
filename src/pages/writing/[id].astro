@@ -1,0 +1,35 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { blogPosts, type BlogPost } from '../../components/BlogPosts';
+
+export function getStaticPaths() {
+  return blogPosts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+---
+
+<Layout title={`${post.title} | Writing`}>
+  <article class="max-w-2xl mx-auto">
+    <h1 class="text-3xl font-serif font-bold text-primary mb-2">{post.title}</h1>
+    <p class="text-accent/80 italic mb-8">{post.subtitle}</p>
+    <div class="prose prose-lg text-accent">
+      <p>{post.content}</p>
+    </div>
+    <div class="mt-8">
+      <a 
+        href="/writing"
+        class="text-primary hover:text-secondary transition-colors"
+      >
+        ← Back to all posts
+      </a>
+    </div>
+  </article>
+</Layout>

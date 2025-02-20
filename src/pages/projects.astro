@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectFilter from '../components/ProjectFilter';
+---
+
+<Layout title="Projects | Portfolio">
+  <div class="max-w-2xl mx-auto">
+    <ProjectFilter client:load />
+  </div>
+</Layout>

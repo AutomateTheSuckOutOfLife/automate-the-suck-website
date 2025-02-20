@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ShuffleText from '../components/ShuffleText';
+---
+
+<Layout title="Portfolio">
+  <div class="min-h-[80vh] flex flex-col justify-center items-center text-center">
+    <div class="space-y-4 mb-8">
+      <h1 class="text-4xl md:text-6xl font-serif font-bold text-primary">
+        made
+      </h1>
+      <ShuffleText client:load />
+    </div>
+    <h2 class="text-3xl font-serif font-bold text-accent mb-8">
+      made by mayd
+    </h2>
+    <p class="max-w-2xl text-lg leading-relaxed mb-12">
+      mayd is my full-time passion project, combining creativity, problem-solving, and innovation to make a positive difference in people's lives. It's a multidisciplinary space where I share the things I make, including:
+    </p>
+    <ul class="space-y-2 text-primary mb-12">
+      <li>• ux design & development</li>
+      <li>• creative goods & branding</li>
+      <li>• ai-driven digital solutions</li>
+      <li>• resources for educators</li>
+    </ul>
+    <p class="max-w-2xl text-lg leading-relaxed mb-12">
+      I use mayd as a platform to combine my ux expertise, creativity, and technical skills, aiming to solve problems and make meaningful contributions.
+    </p>
+    <div class="flex gap-6">
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary transition-colors">
+        LinkedIn
+      </a>
+      <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary transition-colors">
+        GitHub
+      </a>
+    </div>
+  </div>
+</Layout>
