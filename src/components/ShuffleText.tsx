@@ -18,7 +18,12 @@ export default function ShuffleText() {
 
   return (
     <div className="flex flex-col items-center gap-6">
-      <span className="text-4xl md:text-6xl font-serif italic underline decoration-2 underline-offset-8 text-primary self-start">{currentText}</span>
+      <a 
+        href="/projects" 
+        className="group transition-colors"
+      >
+        <span className="text-4xl md:text-6xl font-serif italic underline decoration-2 underline-offset-8 text-primary group-hover:text-secondary transition-colors">{currentText}</span>
+      </a>
       <button
         onClick={shuffleText}
         className="p-2 hover:text-secondary transition-colors"
