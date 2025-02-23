@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#F5EEE9', // Light mode background
+        background: '#FAFAFA', // Light mode background
         primary: '#561F76', // Purple primary
         secondary: '#6B2E91', // Slightly lighter purple for hover states
         accent: '#14071B', // Text color
@@ -16,8 +16,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        serif: ['Merriweather', 'Georgia', 'serif'],
+        sans: ['Source Sans Pro', 'system-ui', 'sans-serif'],
+        serif: ['Playfair Display', 'Georgia', 'serif'],
       },
     },
   },

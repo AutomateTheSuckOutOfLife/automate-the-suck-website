@@ -4,14 +4,16 @@ import ShuffleText from '../components/ShuffleText';
 ---
 
 <Layout title="Portfolio">
-  <div class="bg-[#F4E7FF] w-full py-16 flex items-center justify-center">
+  <div class="bg-[#F4E7FF] w-full py-16 flex items-center justify-center relative">
     <div class="max-w-2xl mx-auto px-4">
       <div class="w-full flex flex-col items-center text-center">
-        <div class="space-y-8">
+        <div class="space-y-12 relative">
           <h1 class="text-4xl md:text-6xl font-serif font-bold text-black">
             made
           </h1>
-          <ShuffleText client:load />
+          <div class="relative">
+            <ShuffleText client:load />
+          </div>
         </div>
       </div>
     </div>
