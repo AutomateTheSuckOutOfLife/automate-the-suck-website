@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import hoverIcon from '../assets/hover.svg?url';
 
 const textOptions = [
   'with Figma',
@@ -17,33 +18,28 @@ export default function ShuffleText() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-6">
-      <a 
-        href="/projects" 
-        className="group transition-colors"
-      >
-        <span className="text-4xl md:text-6xl font-serif italic underline decoration-2 underline-offset-8 text-primary group-hover:text-secondary transition-colors">{currentText}</span>
-      </a>
-      <button
-        onClick={shuffleText}
-        className="p-2 hover:text-secondary transition-colors"
-        aria-label="Shuffle text"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-8 h-8"
+    <div className="flex flex-col w-full gap-8">
+      <div>
+        <a 
+          href="/projects" 
+          className="group transition-colors block"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+          <span className="text-4xl md:text-6xl font-serif underline decoration-2 underline-offset-8 text-primary group-hover:text-secondary transition-colors whitespace-nowrap">{currentText}</span>
+        </a>
+      </div>
+      <div className="text-accent group flex justify-center w-full mt-4">
+        <button
+          onClick={shuffleText}
+          className="p-2 group-hover:text-[#E2C42B] transition-all duration-300"
+          aria-label="Shuffle text"
+        >
+          <img 
+            src={hoverIcon} 
+            alt="Magic wand with sparkles" 
+            className="w-16 h-16 transition-all duration-300 group-hover:scale-110"
           />
-        </svg>
-      </button>
+        </button>
+      </div>
     </div>
   );
 }
