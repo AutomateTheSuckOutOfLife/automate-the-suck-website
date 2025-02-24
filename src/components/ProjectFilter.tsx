@@ -85,7 +85,7 @@ export default function ProjectFilter() {
             key={project.id}
             className="bg-white/50 rounded-lg p-6 space-y-4 hover:bg-white/60 transition-colors"
           >
-            <h2 className="text-xl font-bold text-primary">{project.title}</h2>
+            <h2 className="text-xl font-serif font-bold text-primary">{project.title}</h2>
             <p className="text-accent/80 italic">{project.subtitle}</p>
             {project.tags.map(tag => (
               <span

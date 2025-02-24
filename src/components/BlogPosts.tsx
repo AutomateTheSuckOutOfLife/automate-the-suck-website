@@ -51,7 +51,7 @@ export default function BlogPosts() {
               href={`/writing/${post.id}`}
               className="block group"
             >
-              <h2 className="text-xl font-bold text-primary dark:text-dark-accent group-hover:text-secondary dark:group-hover:text-dark-accent/80 transition-colors">
+              <h2 className="text-xl font-serif font-bold text-primary dark:text-dark-accent group-hover:text-secondary dark:group-hover:text-dark-accent/80 transition-colors">
                 {post.title}
               </h2>
               <p className="text-accent/80 dark:text-dark-accent/80 italic">{post.subtitle}</p>
