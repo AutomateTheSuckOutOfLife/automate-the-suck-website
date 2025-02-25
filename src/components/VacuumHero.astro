@@ -79,7 +79,6 @@ import AstLogo from '../assets/ast-logo.svg?url';
   <span class="dirt">✱</span>
   <span class="dirt">✱</span>
   <span class="dirt">✱</span>
-  <span class="dirt">✱</span>
   <!-- Pause Button -->
   <button id="pause-btn" class="pause-btn" aria-label="Pause animation">
     <div class="pause-icon"></div>
@@ -130,17 +129,20 @@ import AstLogo from '../assets/ast-logo.svg?url';
     docked = true;
     vacuumLogo.style.transition = 'left 1s ease, top 1s ease, transform 1s ease';
     
-    // Attempt to align with the wordmark in the navbar
-    const wordmark = document.getElementById('wordmark');
-    let dockLeft = 10; // default value
-    if (wordmark) {
-      const wordmarkRect = wordmark.getBoundingClientRect();
+    // Get the word mark element and calculate its position
+    const wordMark = document.querySelector('nav img');
+    if (wordMark) {
+      const wordMarkRect = wordMark.getBoundingClientRect();
       const heroRect = heroSection.getBoundingClientRect();
-      dockLeft = wordmarkRect.left - heroRect.left;
+      // Calculate the left position by:
+      // 1. Taking word mark's left position
+      // 2. Adding a small offset to account for the vacuum logo's width
+      // 3. Subtracting the hero section's left position to get relative positioning
+      const dockLeft = wordMarkRect.left - heroRect.left + (wordMarkRect.width / 2 - vacuumLogo.clientWidth / 2);
+      vacuumLogo.style.left = `${dockLeft}px`;
+      vacuumLogo.style.top = '10px';
+      vacuumLogo.style.transform = 'rotate(0deg)';
     }
-    vacuumLogo.style.left = `${dockLeft}px`;
-    vacuumLogo.style.top = '10px';
-    vacuumLogo.style.transform = 'rotate(0deg)';
   }
 
   // Modify checkDirtPickup to call dockLogo() if no dirt remains
