@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import AstLogo from '../assets/ast-logo.svg?url';
+import KaitlinPic from '../assets/kaitlin-pic.jpeg?url';
+import DylanPic from '../assets/dylan-pic.jpeg?url';
 ---
 
 <Layout title="Automate The Suck">
@@ -94,8 +96,16 @@ import AstLogo from '../assets/ast-logo.svg?url';
           We're Kaitlin and Dylan, two problem-solvers passionate about putting technology back into the hands of everyday people. We started Automate the Suck Out of Life to help individuals break free from repetitive tasks, reclaim their autonomy, and make use of the technology they already own.
         </p>
         <div class="flex justify-center gap-12 my-8">
-          <div class="w-32 h-32 rounded-full bg-primary/10 border-2 border-primary"></div>
-          <div class="w-32 h-32 rounded-full bg-primary/10 border-2 border-primary"></div>
+          <img 
+            src={KaitlinPic} 
+            alt="Kaitlin smiling at a restaurant" 
+            class="w-32 h-32 rounded-full object-cover border-2 border-primary"
+          />
+          <img 
+            src={DylanPic} 
+            alt="Dylan smiling outdoors with mountains in the background" 
+            class="w-32 h-32 rounded-full object-cover border-2 border-primary"
+          />
         </div>
         <p>
           Our work is grounded in the belief that technology should be a tool for empowerment—not exploitation. We're here to foster reflection, intentionality, and authentic human growth by creating easy-to-use tools, offering clear guidance, and building a community that supports equitable access for everyone.
