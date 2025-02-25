@@ -1,7 +1,7 @@
 ---
 import AstLogo from '../assets/ast-logo.svg?url';
 ---
-<div id="hero-section" class="w-full bg-gray-200 mb-24 py-16">
+<div id="hero-section" class="w-full bg-gray-200 mb-24 py-16" role="img" aria-label="Animated robot vacuum cleaning up dust to symbolize technology that simplifies everyday tasks">
   <div class="container mx-auto px-4">
     <div class="max-w-4xl mx-auto flex items-center gap-8">
       <div class="flex-1">
@@ -20,16 +20,6 @@ import AstLogo from '../assets/ast-logo.svg?url';
     </div>
   </div>
   <!-- Dirt particles as text elements -->
-  <span class="dirt">✱</span>
-  <span class="dirt">✱</span>
-  <span class="dirt">✱</span>
-  <span class="dirt">✱</span>
-  <span class="dirt">✱</span>
-  <span class="dirt">✱</span>
-  <span class="dirt">✱</span>
-  <span class="dirt">✱</span>
-  <span class="dirt">✱</span>
-  <span class="dirt">✱</span>
   <span class="dirt">✱</span>
   <span class="dirt">✱</span>
   <span class="dirt">✱</span>
@@ -99,15 +89,20 @@ import AstLogo from '../assets/ast-logo.svg?url';
   let docked = false;
   let paused = false;  // New variable to track pause state
 
-  // Add event listener for the pause button
-  pauseBtn.addEventListener('click', () => {
-    paused = !paused;
-    pauseBtn.classList.toggle('playing');
-    // If resuming, call moveVacuum to restart animation loop
-    if (!paused && !docked && !moving) {
+  // Function to start or stop the animation
+  function toggleAnimation(shouldPause) {
+    paused = shouldPause;
+    pauseBtn.classList.toggle('playing', paused);
+    
+    if (!paused && !docked) {
       moving = true;
       moveVacuum();
     }
+  }
+
+  // Add event listener for the pause button
+  pauseBtn.addEventListener('click', () => {
+    toggleAnimation(!paused);
   });
 
   // Randomly place dirt in the hero section
@@ -181,7 +176,6 @@ import AstLogo from '../assets/ast-logo.svg?url';
       return; // Stop movement if logo is docked
     }
     if (paused) {
-      requestAnimationFrame(moveVacuum);
       return; // Pause movement if paused
     }
 
@@ -238,9 +232,25 @@ import AstLogo from '../assets/ast-logo.svg?url';
     requestAnimationFrame(moveVacuum);
   }
 
-  // Initialize dirt placement and start movement
-  placeDirt();
-  moveVacuum();
+  // Function to update motion preference state
+  function updateMotionPreference() {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    toggleAnimation(mediaQuery.matches);
+  }
+
+  // Initialize after DOM content is loaded
+  window.addEventListener('DOMContentLoaded', () => {
+    updateMotionPreference();
+    // Optionally, begin placing dirt and starting the animation if not paused
+    placeDirt();
+    if (!paused) {
+      moveVacuum();
+    }
+
+    // Listen for changes in motion preference
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    mediaQuery.addEventListener('change', updateMotionPreference);
+  });
 </script>
 
 <style>
