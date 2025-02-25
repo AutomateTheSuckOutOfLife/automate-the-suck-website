@@ -1,0 +1,331 @@
+---
+import AstLogo from '../assets/ast-logo.svg?url';
+---
+<div id="hero-section" class="w-full bg-gray-200 mb-24 py-16">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto flex items-center gap-8">
+      <div class="flex-1">
+        <!-- Hero text removed -->
+      </div>
+      <div class="w-9 h-9 flex-shrink-0">
+        <div id="hero-logo-wrapper">
+          <img 
+            src={AstLogo} 
+            alt="AST Logo" 
+            id="vacuum-logo"
+            class="w-full h-full"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Dirt particles as text elements -->
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <span class="dirt">✱</span>
+  <!-- Pause Button -->
+  <button id="pause-btn" class="pause-btn" aria-label="Pause animation">
+    <div class="pause-icon"></div>
+  </button>
+</div>
+
+<script type="module">
+  const vacuumLogo = document.getElementById('vacuum-logo');
+  const heroSection = document.getElementById('hero-section');
+  const dirtParticles = document.querySelectorAll('.dirt');
+  const pauseBtn = document.getElementById('pause-btn');
+
+  let posX = 100; // Initial position
+  let posY = 100;
+  let speed = 2;
+  let angle = Math.floor(Math.random() * 360);
+  let moving = true;
+  let docked = false;
+  let paused = false;  // New variable to track pause state
+
+  // Add event listener for the pause button
+  pauseBtn.addEventListener('click', () => {
+    paused = !paused;
+    pauseBtn.classList.toggle('playing');
+    // If resuming, call moveVacuum to restart animation loop
+    if (!paused && !docked && !moving) {
+      moving = true;
+      moveVacuum();
+    }
+  });
+
+  // Randomly place dirt in the hero section
+  function placeDirt() {
+    dirtParticles.forEach(dirt => {
+      const maxX = heroSection.clientWidth - 20; // Offset to keep it inside
+      const maxY = heroSection.clientHeight - 20;
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+      
+      dirt.style.left = `${randomX}px`;
+      dirt.style.top = `${randomY}px`;
+    });
+  }
+
+  // Function to dock the logo in the top left corner
+  function dockLogo() {
+    moving = false;
+    docked = true;
+    vacuumLogo.style.transition = 'left 1s ease, top 1s ease, transform 1s ease';
+    
+    // Attempt to align with the wordmark in the navbar
+    const wordmark = document.getElementById('wordmark');
+    let dockLeft = 10; // default value
+    if (wordmark) {
+      const wordmarkRect = wordmark.getBoundingClientRect();
+      const heroRect = heroSection.getBoundingClientRect();
+      dockLeft = wordmarkRect.left - heroRect.left;
+    }
+    vacuumLogo.style.left = `${dockLeft}px`;
+    vacuumLogo.style.top = '10px';
+    vacuumLogo.style.transform = 'rotate(0deg)';
+  }
+
+  // Modify checkDirtPickup to call dockLogo() if no dirt remains
+  function checkDirtPickup() {
+    dirtParticles.forEach(dirt => {
+      const dirtRect = dirt.getBoundingClientRect();
+      const vacuumRect = vacuumLogo.getBoundingClientRect();
+
+      if (
+        vacuumRect.left < dirtRect.right &&
+        vacuumRect.right > dirtRect.left &&
+        vacuumRect.top < dirtRect.bottom &&
+        vacuumRect.bottom > dirtRect.top
+      ) {
+        // Suck up animation
+        dirt.style.transform = 'scale(0)';
+        dirt.style.opacity = '0';
+        setTimeout(() => dirt.remove(), 500); // Remove dirt after animation
+      }
+    });
+    
+    // After processing, if there is no dirt left, dock the logo
+    if (document.querySelectorAll('.dirt').length === 0 && !docked) {
+      dockLogo();
+    }
+  }
+
+  // Randomize turning angles for more natural movement
+  function getRandomTurn() {
+    return Math.floor(Math.random() * 91) + 45; // Random between 45° and 135°
+  }
+
+  // Update moveVacuum to stop moving if docked or paused
+  function moveVacuum() {
+    if (docked) {
+      return; // Stop movement if logo is docked
+    }
+    if (paused) {
+      requestAnimationFrame(moveVacuum);
+      return; // Pause movement if paused
+    }
+
+    if (!moving) {
+      requestAnimationFrame(moveVacuum);
+      return;
+    }
+
+    const maxX = heroSection.clientWidth - vacuumLogo.clientWidth;
+    const maxY = heroSection.clientHeight - vacuumLogo.clientHeight;
+
+    const radians = (angle * Math.PI) / 180;
+    const deltaX = Math.cos(radians) * speed;
+    const deltaY = Math.sin(radians) * speed;
+
+    posX += deltaX;
+    posY += deltaY;
+
+    let hitWall = false;
+    let newAngle = angle;
+
+    // Detect wall collisions
+    if (posX >= maxX || posX <= 0) {
+      hitWall = true;
+      newAngle = 180 - angle + getRandomTurn();
+    }
+    if (posY >= maxY || posY <= 0) {
+      hitWall = true;
+      newAngle = -angle + getRandomTurn();
+    }
+
+    if (hitWall) {
+      // Clamp position to boundaries
+      posX = Math.min(maxX, Math.max(0, posX));
+      posY = Math.min(maxY, Math.max(0, posY));
+      vacuumLogo.style.left = `${posX}px`;
+      vacuumLogo.style.top = `${posY}px`;
+      
+      moving = false;
+      setTimeout(() => {
+        angle = (newAngle + 360) % 360;
+        moving = true;
+        moveVacuum();
+      }, 500);
+      return;
+    }
+
+    // Update position and check for dirt
+    vacuumLogo.style.left = `${posX}px`;
+    vacuumLogo.style.top = `${posY}px`;
+    vacuumLogo.style.transform = `rotate(${angle + 90}deg)`;
+
+    checkDirtPickup();
+    requestAnimationFrame(moveVacuum);
+  }
+
+  // Initialize dirt placement and start movement
+  placeDirt();
+  moveVacuum();
+</script>
+
+<style>
+  #hero-section {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Updated height of hero section */
+    background-color: #FFFCEC; /* Updated hero section background color */
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  #vacuum-logo {
+    position: absolute;
+    width: 50px; /* Adjust size as needed */
+    height: 50px;
+    border-radius: 50%;
+    z-index: 10;
+    transition: transform 0.4s ease-in-out, left 0.1s linear, top 0.1s linear; /* Smooth turns & movement */
+    will-change: transform, left, top;
+  }
+
+  .dirt {
+    position: absolute;
+    font-size: 15px;
+    color: #785B41;
+    opacity: 1;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  }
+
+  /* Remove static positioning and let JavaScript handle all dirt positions */
+  
+  /* Pause button styles */
+  .pause-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(58, 98, 92, 0.2);
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .pause-btn:hover {
+    background: rgba(58, 98, 92, 0.3);
+  }
+
+  .pause-icon {
+    width: 12px;
+    height: 12px;
+    position: relative;
+  }
+
+  .pause-icon::before,
+  .pause-icon::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 12px;
+    background-color: #3A625C;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .pause-icon::before {
+    left: 0;
+  }
+
+  .pause-icon::after {
+    right: 0;
+  }
+
+  /* Play icon state */
+  .pause-btn.playing .pause-icon::before {
+    transform: translateX(2px) rotate(30deg) scaleY(0.8);
+    transform-origin: center;
+  }
+
+  .pause-btn.playing .pause-icon::after {
+    transform: translateX(2px) rotate(-30deg) scaleY(0.8);
+    transform-origin: center;
+  }
+</style> 
