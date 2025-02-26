@@ -4,88 +4,38 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
   const [theme, setTheme] = useState('light');
 
-  // Function to get system preference
-  const getSystemTheme = () => {
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  };
-
-  // Function to apply theme
-  const applyTheme = (newTheme: string) => {
-    const root = document.documentElement;
-    
-    if (newTheme === 'system') {
-      const systemTheme = getSystemTheme();
-      if (systemTheme === 'dark') {
-        root.classList.add('dark');
-      } else {
-        root.classList.remove('dark');
-      }
-    } else {
-      if (newTheme === 'dark') {
-        root.classList.add('dark');
-      } else {
-        root.classList.remove('dark');
-      }
-    }
-  };
-
   useEffect(() => {
     setMounted(true);
-    const storedTheme = localStorage.getItem('theme') || 'system';
+    const storedTheme = localStorage.getItem('theme') || 'light';
     setTheme(storedTheme);
   }, []);
 
   useEffect(() => {
     if (mounted) {
-      applyTheme(theme);
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
       localStorage.setItem('theme', theme);
     }
   }, [theme, mounted]);
-
-  // Listen for system preference changes
-  useEffect(() => {
-    if (!mounted) return;
-    
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    const handleChange = () => {
-      if (theme === 'system') {
-        applyTheme('system');
-      }
-    };
-    
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, [mounted, theme]);
 
   if (!mounted) {
     return null;
   }
 
-  // Function to cycle through themes: light -> dark -> system -> light
-  const cycleTheme = () => {
-    if (theme === 'light') setTheme('dark');
-    else if (theme === 'dark') setTheme('system');
-    else setTheme('light');
-  };
-
-  // Determine which icon to show
-  const showSunIcon = theme === 'light' || (theme === 'system' && getSystemTheme() === 'light');
-  const showMoonIcon = theme === 'dark' || (theme === 'system' && getSystemTheme() === 'dark');
-  const showSystemIcon = theme === 'system';
-
   return (
     <button
-      onClick={cycleTheme}
+      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
       className="w-10 h-10 bg-white dark:bg-primary rounded-full shadow-md flex items-center justify-center transition-all duration-500 hover:scale-110"
-      aria-label={`Current theme: ${theme}. Click to change theme.`}
-      title={`Current theme: ${theme}`}
+      aria-label="Toggle theme"
     >
       <div className="relative w-5 h-5">
         {/* Sun */}
         <div
-          className={`absolute inset-0 transform transition-transform duration-500 ${
-            showSunIcon ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-180'
+          className={`absolute inset-0 transform transition-transform duration-500 rotate-0 dark:-rotate-180 ${
+            theme === 'dark' ? 'opacity-0' : 'opacity-100'
           }`}
         >
           <svg
@@ -105,8 +55,8 @@ export default function ThemeToggle() {
         </div>
         {/* Moon */}
         <div
-          className={`absolute inset-0 transform transition-transform duration-500 ${
-            showMoonIcon ? 'opacity-100 rotate-0' : 'opacity-0 rotate-180'
+          className={`absolute inset-0 transform transition-transform duration-500 rotate-180 dark:rotate-0 ${
+            theme === 'light' ? 'opacity-0' : 'opacity-100'
           }`}
         >
           <svg
@@ -124,12 +74,6 @@ export default function ThemeToggle() {
             />
           </svg>
         </div>
-        {/* System (only visible when in system mode) */}
-        {showSystemIcon && (
-          <div className="absolute inset-0 flex items-center justify-center opacity-50">
-            <span className="text-xs font-bold">OS</span>
-          </div>
-        )}
       </div>
     </button>
   );
