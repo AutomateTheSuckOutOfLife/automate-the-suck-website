@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+import KaitlinPic from '../assets/kaitlin-prof.png?url';
+import DylanPic from '../assets/dylan-prof.png?url';
+---
+
+<Layout title="About | Automate The Suck">
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <h1 class="text-4xl md:text-5xl font-serif font-bold text-accent mb-12">About Us</h1>
+    
+    <div class="text-lg text-accent leading-relaxed mb-16 space-y-8">
+      <!-- Mission Section -->
+      <div class="bg-[#F0FFF3] border-2 border-primary rounded-lg p-8 mb-12">
+        <h2 class="text-3xl font-serif font-bold text-accent mb-6">Our Mission</h2>
+        <p class="text-accent leading-relaxed">
+          Technology should be a tool for empowerment, not exploitation. Automate the Suck Out of Life is a nonprofit committed to democratizing automation, fostering digital literacy, and creating tools that put people back in control of their time and data. Through open-source innovation, privacy-focused solutions, and community collaboration, we're building a future where technology works for everyone.
+        </p>
+      </div>
+      
+      <h2 class="text-3xl font-serif font-bold text-accent mb-6">Who Are We?</h2>
+      <p>
+        We're Kaitlin and Dylan, two problem-solvers passionate about putting technology back into the hands of everyday people. We started Automate the Suck Out of Life to help individuals break free from repetitive tasks, reclaim their autonomy, and make use of the technology they already own.
+      </p>
+      
+      <div class="flex flex-col md:flex-row justify-center gap-16 my-12">
+        <div class="flex flex-col items-center">
+          <img 
+            src={KaitlinPic} 
+            alt="Kaitlin smiling at a restaurant" 
+            class="w-48 h-48 rounded-full object-cover shadow-lg hover:shadow-xl transition-shadow mb-4"
+          />
+          <h2 class="text-2xl font-serif font-bold text-accent">Kaitlin Isaac</h2>
+          <p class="text-accent/80">Co-founder</p>
+          <p class="text-center mt-4 max-w-xs">
+            Former middle school band teacher turned UX designer with a passion for making technology accessible to everyone.
+          </p>
+        </div>
+        
+        <div class="flex flex-col items-center">
+          <img 
+            src={DylanPic} 
+            alt="Dylan smiling outdoors with mountains in the background" 
+            class="w-48 h-48 rounded-full object-cover shadow-lg hover:shadow-xl transition-shadow mb-4"
+          />
+          <h2 class="text-2xl font-serif font-bold text-accent">Dylan Isaac</h2>
+          <p class="text-accent/80">Co-founder</p>
+          <p class="text-center mt-4 max-w-xs">
+            Enablement engineer and systems thinker dedicated to democratizing technology and empowering people.
+          </p>
+        </div>
+      </div>
+      
+      <h2 class="text-3xl font-serif font-bold text-accent mb-6">Our Story</h2>
+      <p>
+        We founded Automate the Suck Out of Life after recognizing a common problem: despite having powerful technology at our fingertips, many people struggle to use it effectively to improve their lives. We saw friends and family members overwhelmed by digital tools that were supposed to make life easier but often created more stress instead.
+      </p>
+      
+      <p>
+        Drawing on Kaitlin's background in education and UX design, and Dylan's expertise in software engineering and accessibility, we set out to create resources that would help people harness technology on their own terms. We believe that technology should adapt to people's needs—not the other way around.
+      </p>
+      
+      <p>
+        Today, we're building a community of like-minded individuals who share our vision of technology as a force for empowerment. Through our projects, workshops, and educational resources, we're working to create a world where everyone can use technology to enhance their lives, regardless of their technical background or resources.
+      </p>
+      
+      <h2 class="text-3xl font-serif font-bold text-accent mb-6">Our Values</h2>
+      <ul class="space-y-4 list-none">
+        <li class="flex gap-3">
+          <span class="text-primary font-bold">•</span>
+          <span><strong class="text-primary">Accessibility:</strong> We believe technology should be usable by everyone, regardless of ability, background, or resources.</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="text-primary font-bold">•</span>
+          <span><strong class="text-primary">Empowerment:</strong> We focus on giving people the skills and tools they need to solve their own problems.</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="text-primary font-bold">•</span>
+          <span><strong class="text-primary">Privacy:</strong> We respect people's right to control their own data and digital identity.</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="text-primary font-bold">•</span>
+          <span><strong class="text-primary">Community:</strong> We believe in the power of collaboration and shared knowledge.</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="text-primary font-bold">•</span>
+          <span><strong class="text-primary">Sustainability:</strong> We create solutions that are environmentally and socially responsible.</span>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="bg-[#F0FFF3] border-2 border-primary rounded-lg p-8 text-center">
+      <p class="text-accent font-mono mb-6">
+        Support our mission by clicking the Donate Button.
+      </p>
+      <button class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-secondary transition-colors w-full md:w-auto">
+        Donate
+      </button>
+    </div>
+  </div>
+</Layout> 

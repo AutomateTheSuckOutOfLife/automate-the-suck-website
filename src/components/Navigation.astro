@@ -1,12 +1,14 @@
 ---
 import ThemeToggle from './ThemeToggle';
 import MobileMenu from './MobileMenu';
-import WordMark from '../assets/word-mark.svg?url';
+import WordMarkLight from '../assets/word-mark.svg?url';
+import WordMarkDark from '../assets/darkmode-wordmark.svg?url';
 
 const navItems = [
-  { href: '#about', label: 'About' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/about', label: 'About' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/writing', label: 'Writing' },
+  { href: '/contact', label: 'Contact' },
 ];
 ---
 
@@ -15,17 +17,35 @@ const navItems = [
     <div>
       <a href="/" class="block">
         <img 
-          src={WordMark} 
+          src={WordMarkLight} 
           alt="AST Logo" 
-          class="text-primary dark:text-dark-text"
+          class="block dark:hidden"
+          style="height: 48px; width: auto; filter: var(--svg-filter);"
+        />
+        <img 
+          src={WordMarkDark} 
+          alt="AST Logo" 
+          class="hidden dark:block"
           style="height: 48px; width: auto; filter: var(--svg-filter);"
         />
       </a>
     </div>
 
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center space-x-8">
+      {navItems.map(item => (
+        <a 
+          href={item.href} 
+          class="text-accent dark:text-dark-accent hover:text-primary dark:hover:text-dark-primary transition-colors"
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+
     <div class="flex items-center gap-4">
       <ThemeToggle client:load />
+      <MobileMenu client:load items={navItems} />
     </div>
   </nav>
 </header>
-<MobileMenu client:load items={navItems} />

@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// This would typically come from a CMS or data file
+const articles = [
+  {
+    id: 'ai-accessibility',
+    title: 'Making AI Accessible for Everyone',
+    excerpt: 'How we can ensure that AI tools are designed with accessibility in mind from the start.',
+    date: 'May 15, 2023',
+    category: 'Accessibility',
+  },
+  {
+    id: 'digital-literacy',
+    title: 'Building Digital Literacy in Underserved Communities',
+    excerpt: 'Strategies for empowering communities with the digital skills they need to thrive in today\'s world.',
+    date: 'April 3, 2023',
+    category: 'Education',
+  },
+  {
+    id: 'ethical-ai',
+    title: 'The Ethics of Personal AI Assistants',
+    excerpt: 'Exploring the ethical considerations of creating AI tools that become part of our daily lives.',
+    date: 'March 12, 2023',
+    category: 'Ethics',
+  },
+  {
+    id: 'local-first',
+    title: 'Why Local-First Software Matters',
+    excerpt: 'The importance of designing tools that prioritize user ownership and control over their data.',
+    date: 'February 28, 2023',
+    category: 'Privacy',
+  },
+];
+---
+
+<Layout title="Writing | Automate The Suck">
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <h1 class="text-4xl md:text-5xl font-serif font-bold text-accent mb-12">Writing</h1>
+    
+    <div class="text-lg text-accent leading-relaxed mb-8">
+      <p>
+        We share our thoughts, research, and insights on technology, accessibility, and digital empowerment. 
+        Here you'll find articles about our projects, ethical considerations in tech, and practical guides 
+        for making the most of your digital tools.
+      </p>
+    </div>
+    
+    <div class="space-y-12 mt-12">
+      {articles.map(article => (
+        <article class="border-b border-primary/20 pb-8 last:border-0">
+          <div class="flex flex-col md:flex-row md:items-start gap-4">
+            <div class="md:w-1/4">
+              <span class="text-sm text-primary font-mono">{article.date}</span>
+              <div class="mt-2">
+                <span class="inline-block bg-[#F0FFF3] text-primary text-sm px-3 py-1 rounded-full">
+                  {article.category}
+                </span>
+              </div>
+            </div>
+            <div class="md:w-3/4">
+              <h2 class="text-2xl font-serif font-bold text-accent mb-3">
+                <a href={`/writing/${article.id}`} class="hover:text-primary transition-colors">
+                  {article.title}
+                </a>
+              </h2>
+              <p class="text-accent/80 mb-4">{article.excerpt}</p>
+              <a href={`/writing/${article.id}`} class="text-primary hover:text-secondary transition-colors">
+                Read more →
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+    
+    <div class="mt-16 bg-[#FFE5F4] rounded-lg p-8 text-center">
+      <h3 class="text-2xl font-serif font-bold text-accent mb-4">Subscribe to our newsletter</h3>
+      <p class="text-accent mb-6">
+        Get our latest articles, project updates, and insights delivered directly to your inbox.
+      </p>
+      <form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
+        <input 
+          type="email" 
+          placeholder="Your email address" 
+          class="flex-1 px-4 py-3 rounded-lg border border-primary bg-white text-accent placeholder-accent/60 focus:outline-none focus:border-secondary"
+          required
+        />
+        <button 
+          type="submit" 
+          class="bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-secondary transition-colors"
+        >
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </div>
+</Layout> 
