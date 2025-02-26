@@ -26,7 +26,7 @@ export default function MobileMenu({ items }: Props) {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className={`w-6 h-6 text-accent dark:text-[#FAFFFB] hover:text-primary dark:hover:text-primary transition-colors ${isOpen ? 'text-primary dark:text-primary' : ''}`}
+          className={`w-6 h-6 text-accent dark:text-[#FFCEF1] hover:text-primary dark:hover:text-[#FFE5F4] transition-colors ${isOpen ? 'text-primary dark:text-[#FFE5F4]' : ''}`}
         >
           <path
             strokeLinecap="round"
@@ -50,14 +50,14 @@ export default function MobileMenu({ items }: Props) {
         }}
       >
         <div className="p-8 pt-12">
-          <h2 className="text-2xl font-serif mb-8 text-accent dark:text-[#FAFFFB]">Contents</h2>
+          <h2 className="text-2xl font-serif mb-8 text-accent dark:text-[#FFCEF1]">Contents</h2>
           {/* Navigation */}
           <nav className="space-y-6">
             {items.map(({ href, label }) => (
               <a
                 key={href}
                 href={href}
-                className="block text-xl text-accent dark:text-[#FAFFFB] hover:text-primary dark:hover:text-primary transition-colors"
+                className="block text-xl text-accent dark:text-[#FFCEF1] hover:text-primary dark:hover:text-[#FFE5F4] transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {label}

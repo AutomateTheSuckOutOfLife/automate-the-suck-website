@@ -60,7 +60,6 @@ const { title } = Astro.props;
   html.dark h4,
   html.dark h5,
   html.dark h6,
-  html.dark a,
   html.dark li,
   html.dark div,
   html.dark button {
@@ -68,7 +67,11 @@ const { title } = Astro.props;
   }
 
   /* Override link colors explicitly */
-  html.dark a, html.dark a:visited, html.dark a:hover, html.dark a:focus {
-    color: #FAFFFB !important;
+  html.dark a, html.dark a:visited {
+    color: #FFCEF1 !important;
+  }
+
+  html.dark a:hover, html.dark a:focus {
+    color: #FFE5F4 !important;
   }
 </style>

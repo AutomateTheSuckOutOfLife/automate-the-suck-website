@@ -1,6 +1,7 @@
 ---
 import AstLogo from '../assets/ast-logo.svg?url';
 import WordMark from '../assets/word-mark.svg?url';
+import DarkWordMark from '../assets/darkmode-wordmark.svg?url';
 ---
 <div id="hero-section" class="w-full bg-gray-200 mb-24 py-16" role="img" aria-label="Animated robot vacuum cleaning up dust to symbolize technology that simplifies everyday tasks">
   <div class="container mx-auto px-4">
@@ -23,7 +24,8 @@ import WordMark from '../assets/word-mark.svg?url';
   
   <!-- Wordmark -->
   <div class="wordmark">
-    <img src={WordMark} alt="Automate the suck out of life" />
+    <img src={WordMark} alt="Automate the suck out of life" class="block dark:hidden" />
+    <img src={DarkWordMark} alt="Automate the suck out of life" class="hidden dark:block" />
   </div>
   
   <!-- Dirt particles as text elements -->
@@ -122,6 +124,9 @@ import WordMark from '../assets/word-mark.svg?url';
   function toggleAnimation(shouldPause) {
     paused = shouldPause;
     pauseBtn.classList.toggle('playing', paused);
+    
+    // Update the aria-label to match the current state
+    pauseBtn.setAttribute('aria-label', paused ? 'Play animation' : 'Pause animation');
     
     if (!paused && !docked) {
       moving = true;
@@ -292,6 +297,11 @@ import WordMark from '../assets/word-mark.svg?url';
     box-sizing: border-box;
   }
 
+  /* Add dark mode styling */
+  :global(.dark) #hero-section {
+    background-color: #3A625C;
+  }
+
   /* Wordmark styling */
   .wordmark {
     position: absolute;
@@ -372,8 +382,17 @@ import WordMark from '../assets/word-mark.svg?url';
     transition: background-color 0.3s ease;
   }
 
+  /* Dark mode styling for pause button */
+  :global(.dark) .pause-btn {
+    background: rgba(255, 252, 236, 0.3); /* Light color with opacity for contrast */
+  }
+
   .pause-btn:hover {
     background: rgba(58, 98, 92, 0.3);
+  }
+
+  :global(.dark) .pause-btn:hover {
+    background: rgba(255, 252, 236, 0.4); /* Lighter on hover */
   }
 
   .pause-icon {
@@ -393,6 +412,12 @@ import WordMark from '../assets/word-mark.svg?url';
     transition: all 0.3s ease;
   }
 
+  /* Dark mode styling for pause icon */
+  :global(.dark) .pause-icon::before,
+  :global(.dark) .pause-icon::after {
+    background-color: #FFFCEC; /* Light color for contrast */
+  }
+
   .pause-icon::before {
     left: 0;
   }
@@ -401,14 +426,29 @@ import WordMark from '../assets/word-mark.svg?url';
     right: 0;
   }
 
-  /* Play icon state */
-  .pause-btn.playing .pause-icon::before {
-    transform: translateX(2px) rotate(30deg) scaleY(0.8);
-    transform-origin: center;
-  }
-
+  /* Play icon state - transform the two bars into a triangle */
+  .pause-btn.playing .pause-icon::before,
   .pause-btn.playing .pause-icon::after {
-    transform: translateX(2px) rotate(-30deg) scaleY(0.8);
-    transform-origin: center;
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    border-style: solid;
+  }
+  
+  .pause-btn.playing .pause-icon::before {
+    left: 1px; /* Adjust position to center the triangle */
+    top: 0;
+    border-width: 6px 0 6px 10px;
+    border-color: transparent transparent transparent #3A625C;
+    transform: none;
+  }
+  
+  .pause-btn.playing .pause-icon::after {
+    display: none; /* Hide the second bar completely */
+  }
+  
+  /* Dark mode play icon */
+  :global(.dark) .pause-btn.playing .pause-icon::before {
+    border-color: transparent transparent transparent #FFFCEC;
   }
 </style> 

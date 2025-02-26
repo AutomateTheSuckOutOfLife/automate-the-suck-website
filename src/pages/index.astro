@@ -20,13 +20,13 @@ import VacuumHero from '../components/VacuumHero.astro';
         <div class="flex flex-wrap gap-4">
           <a 
             href="/about" 
-            class="inline-block text-lg text-primary hover:text-secondary transition-colors font-medium"
+            class="inline-block text-lg text-primary hover:text-secondary dark:text-[#FFCEF1] dark:hover:text-[#FFE5F4] transition-colors font-medium"
           >
             Learn more about us →
           </a>
           <a 
             href="/projects" 
-            class="inline-block text-lg text-primary hover:text-secondary transition-colors font-medium"
+            class="inline-block text-lg text-primary hover:text-secondary dark:text-[#FFCEF1] dark:hover:text-[#FFE5F4] transition-colors font-medium"
           >
             Explore our projects →
           </a>
@@ -34,11 +34,11 @@ import VacuumHero from '../components/VacuumHero.astro';
       </div>
 
       <div class="w-full md:w-80">
-        <div class="bg-primary rounded-lg p-8 text-center md:sticky md:top-24">
-          <p class="text-white font-mono mb-6">
+        <div class="bg-primary rounded-lg p-8 text-center md:sticky md:top-24 dark:bg-[#984F83]">
+          <p class="text-white font-mono mb-6 dark:text-white">
             Support our mission by clicking the Donate Button.
           </p>
-          <button class="bg-[#F0FFF3] text-accent px-8 py-3 rounded-full font-semibold hover:bg-[#FFCEF1] hover:text-accent transition-colors w-full">
+          <button class="bg-[#F0FFF3] text-accent px-8 py-3 rounded-full font-semibold hover:bg-[#FFCEF1] hover:text-accent transition-colors w-full dark:bg-[#3A625C] dark:text-[#FFCEF1] dark:hover:bg-[#2C3830] dark:hover:text-[#FFE5F4]">
             Donate
           </button>
         </div>
@@ -53,28 +53,28 @@ import VacuumHero from '../components/VacuumHero.astro';
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <!-- Featured Project -->
-        <div class="bg-[#F0FFF3] border-2 border-primary rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+        <div class="bg-[#F0FFF3] border-2 border-primary rounded-lg overflow-hidden hover:shadow-lg transition-shadow dark:bg-[#3A625C] dark:border-[#FFCEF1]">
           <div class="aspect-video bg-primary/10"></div>
           <div class="p-6">
-            <span class="inline-block bg-primary text-white text-sm px-3 py-1 rounded-full mb-4">
+            <span class="inline-block bg-primary text-white text-sm px-3 py-1 rounded-full mb-4 dark:bg-[#FFCEF1] dark:text-[#3A625C]">
               Featured Project
             </span>
             <h3 class="text-2xl font-serif font-bold text-accent mb-2">AI Journal Assistant</h3>
             <p class="text-accent/80 mb-4">A privacy-focused journaling app that uses AI to help you reflect on your thoughts and identify patterns in your thinking.</p>
-            <a href="/projects" class="text-primary hover:text-secondary transition-colors">Learn More →</a>
+            <a href="/projects" class="text-primary hover:text-secondary dark:text-[#FFCEF1] dark:hover:text-[#FFE5F4] transition-colors">Learn More →</a>
           </div>
         </div>
 
         <!-- Featured Article -->
-        <div class="bg-[#FFE5F4] border-2 border-primary rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+        <div class="bg-[#FFE5F4] border-2 border-primary rounded-lg overflow-hidden hover:shadow-lg transition-shadow dark:bg-[#984F83] dark:border-[#FFCEF1]">
           <div class="aspect-video bg-primary/10"></div>
           <div class="p-6">
-            <span class="inline-block bg-primary text-white text-sm px-3 py-1 rounded-full mb-4">
+            <span class="inline-block bg-primary text-white text-sm px-3 py-1 rounded-full mb-4 dark:bg-[#FFCEF1] dark:text-[#3A625C]">
               Latest Article
             </span>
             <h3 class="text-2xl font-serif font-bold text-accent mb-2">Making AI Accessible for Everyone</h3>
             <p class="text-accent/80 mb-4">How we can ensure that AI tools are designed with accessibility in mind from the start.</p>
-            <a href="/writing/ai-accessibility" class="text-primary hover:text-secondary transition-colors">Read More →</a>
+            <a href="/writing/ai-accessibility" class="text-primary hover:text-secondary dark:text-[#FFCEF1] dark:hover:text-[#FFE5F4] transition-colors">Read More →</a>
           </div>
         </div>
       </div>
@@ -82,7 +82,7 @@ import VacuumHero from '../components/VacuumHero.astro';
       <div class="text-center">
         <a 
           href="/writing" 
-          class="inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-secondary transition-colors"
+          class="inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-secondary transition-colors dark:bg-[#FFCEF1] dark:text-[#984F83] dark:hover:bg-[#FFE5F4]"
         >
           View All Articles
         </a>
@@ -103,24 +103,24 @@ import VacuumHero from '../components/VacuumHero.astro';
           <p class="mb-4">Our nonprofit focuses on:</p>
           <ul class="space-y-4 list-none">
             <li class="flex gap-3">
-              <span class="text-primary font-bold">•</span>
-              <span><strong class="text-primary">Empowering Human Agency:</strong> Simplifying daily challenges so people can focus on meaningful work, personal growth, and creativity.</span>
+              <span class="text-primary font-bold dark:text-[#984F83]">•</span>
+              <span><strong class="text-primary dark:text-[#984F83]">Empowering Human Agency:</strong> Simplifying daily challenges so people can focus on meaningful work, personal growth, and creativity.</span>
             </li>
             <li class="flex gap-3">
-              <span class="text-primary font-bold">•</span>
-              <span><strong class="text-primary">Accessibility & Equity:</strong> Offering free, user-friendly tools that work for all skill levels, regardless of socioeconomic status.</span>
+              <span class="text-primary font-bold dark:text-[#984F83]">•</span>
+              <span><strong class="text-primary dark:text-[#984F83]">Accessibility & Equity:</strong> Offering free, user-friendly tools that work for all skill levels, regardless of socioeconomic status.</span>
             </li>
             <li class="flex gap-3">
-              <span class="text-primary font-bold">•</span>
-              <span><strong class="text-primary">Privacy & Ownership:</strong> Prioritizing your control over personal data with local-first, encrypted tools that keep your information safe and private.</span>
+              <span class="text-primary font-bold dark:text-[#984F83]">•</span>
+              <span><strong class="text-primary dark:text-[#984F83]">Privacy & Ownership:</strong> Prioritizing your control over personal data with local-first, encrypted tools that keep your information safe and private.</span>
             </li>
             <li class="flex gap-3">
-              <span class="text-primary font-bold">•</span>
-              <span><strong class="text-primary">Open Source & Community-Driven Innovation:</strong> Developing adaptable tools with input from our growing community of contributors.</span>
+              <span class="text-primary font-bold dark:text-[#984F83]">•</span>
+              <span><strong class="text-primary dark:text-[#984F83]">Open Source & Community-Driven Innovation:</strong> Developing adaptable tools with input from our growing community of contributors.</span>
             </li>
             <li class="flex gap-3">
-              <span class="text-primary font-bold">•</span>
-              <span><strong class="text-primary">Education & Skill-Building:</strong> Teaching digital literacy and self-directed learning through workshops, mentorships, and accessible resources.</span>
+              <span class="text-primary font-bold dark:text-[#984F83]">•</span>
+              <span><strong class="text-primary dark:text-[#984F83]">Education & Skill-Building:</strong> Teaching digital literacy and self-directed learning through workshops, mentorships, and accessible resources.</span>
             </li>
           </ul>
         </div>
@@ -132,7 +132,7 @@ import VacuumHero from '../components/VacuumHero.astro';
         <div class="text-center">
           <a 
             href="/about" 
-            class="inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-secondary transition-colors"
+            class="inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-secondary transition-colors dark:bg-[#FFCEF1] dark:text-[#984F83] dark:hover:bg-[#FFE5F4]"
           >
             Learn More About Us
           </a>
@@ -153,13 +153,13 @@ import VacuumHero from '../components/VacuumHero.astro';
         </p>
       </div>
       
-      <div class="bg-[#FFE5F4] rounded-lg p-8 text-center">
+      <div class="bg-[#FFE5F4] rounded-lg p-8 text-center dark:bg-[#984F83]">
         <div class="flex items-center justify-center gap-4 mb-6">
           <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="24" height="24" rx="12" fill="#3A625C"/>
             <path d="M17 8L12 13L7 8M7 8H17H7ZM17 8V16C17 16.2652 16.8946 16.5196 16.7071 16.7071C16.5196 16.8946 16.2652 17 16 17H8C7.73478 17 7.48043 16.8946 7.29289 16.7071C7.10536 16.5196 7 16.2652 7 16V8V8Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <div class="font-mono text-accent">
+          <div class="font-mono text-accent dark:text-white">
             <div>dylan@automatethesuck.org</div>
             <div>kaitlin@automatethesuck.org</div>
           </div>
@@ -167,7 +167,7 @@ import VacuumHero from '../components/VacuumHero.astro';
         
         <a 
           href="/contact" 
-          class="inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-secondary transition-colors"
+          class="inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-secondary transition-colors dark:bg-[#FFCEF1] dark:text-[#984F83] dark:hover:bg-[#FFE5F4]"
         >
           Contact Us
         </a>
@@ -177,22 +177,22 @@ import VacuumHero from '../components/VacuumHero.astro';
       <div class="mt-12">
         <h3 class="text-2xl font-serif font-bold text-accent mb-8">Follow Us</h3>
         <div class="flex gap-8">
-          <a href="#" class="text-primary hover:text-secondary transition-colors">
+          <a href="#" class="text-primary hover:text-secondary transition-colors dark:text-[#FFCEF1] dark:hover:text-[#FFE5F4]">
             <svg class="w-12 h-12" viewBox="0 0 24 24" fill="currentColor">
               <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
             </svg>
           </a>
-          <a href="#" class="text-primary hover:text-secondary transition-colors">
+          <a href="#" class="text-primary hover:text-secondary transition-colors dark:text-[#FFCEF1] dark:hover:text-[#FFE5F4]">
             <svg class="w-12 h-12" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
             </svg>
           </a>
-          <a href="#" class="text-primary hover:text-secondary transition-colors">
+          <a href="#" class="text-primary hover:text-secondary transition-colors dark:text-[#FFCEF1] dark:hover:text-[#FFE5F4]">
             <svg class="w-12 h-12" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
           </a>
-          <a href="#" class="text-primary hover:text-secondary transition-colors">
+          <a href="#" class="text-primary hover:text-secondary transition-colors dark:text-[#FFCEF1] dark:hover:text-[#FFE5F4]">
             <svg class="w-12 h-12" viewBox="0 0 24 24" fill="currentColor">
               <path d="M10.869 16.136c-.582 1.768-1.286 3.464-2.028 5.117-.469 1.04-.935 2.077-1.659 2.992-.432.52-.82 1.08-1.384 1.428-.142.087-.087-.382.025-.33-.187.035-.142.104-.267.157-.4.271-.673.44-1.375.558-2.083.157-.945.157-1.894.122-2.842-.035-.945-.191-1.877-.33-2.809-.209-1.375-.452-2.738-.696-4.101-.157-.856-.313-1.712-.539-2.556-.191-.698-.452-1.362-.609-2.072-.122-.533-.452-1.362-.609-2.072-.122-.533-.191-1.08-.261-1.622-.052-.407-.052-.829.052-1.223.139-.533.609-.881 1.149-.881.539.007 1.044.302 1.27.787.191.393.261.834.313 1.262.087.673.191 1.345.382 1.99.261.881.574 1.75.891 2.618.157.435.365.856.539 1.292.087.209.191.407.296.603.052.101.157.157.187.284.104.133.261.072.296-.072.052-.209.052-.435.035-.644-.052-.533-.139-1.053-.226-1.586-.191-1.206-.365-2.424-.539-3.63-.052-.382-.104-.777-.139-1.306-.017-.209-.017-.435.017-.644.052-.302.191-.568.452-.452.302 1.113-.267 1.495.087.313.284.435.698.487 1.08.052.382.087.777.139 1.159.157 1.126.313 2.264.487 3.391.052.356.104.712.174 1.067.017.094.052.187.087.284.052.137.191.173.296.061.104-.115.191-.248.261-.382.313-.603.609-1.206.908-1.809.365-.777.713-1.553 1.061-2.342.226-.505.435-1.024.644-1.542.139-.356.261-.725.348-1.101.052-.248.052-.509-.017-.757-.104-.356-.435-.603-.783-.673-.365-.072-.696.072-.926.356-.157.187-.226.422-.261.652-.035.248-.017.509.017.757.017.133.052.267.07.4.017.115-.052.209-.174.209-.104 0-.226-.007-.33-.025-.609-.087-1.044-.554-1.113-1.159-.087-.777.226-1.398.77-1.892.609-.554 1.339-.777 2.133-.673.978.133 1.659.673 1.955 1.613.157.505.139 1.024.052 1.542-.157.945-.522 1.824-.874 2.703-.383.945-.783 1.892-1.183 2.827-.226.525-.452 1.053-.679 1.578-.052.122-.087.248-.122.37-.035.158.087.273.244.209.157-.061.296-.158.426-.267.539-.458.944-1.032 1.322-1.63.696-1.101 1.27-2.264 1.809-3.456.261-.576.504-1.159.748-1.735.191-.458.365-.925.592-1.37.191-.37.4-.733.696-1.032.313-.32.713-.519 1.183-.519.557 0 .926.331 1.061.871.087.331.087.673.052 1.011-.087.829-.313 1.63-.557 2.424-.191.63-.4 1.247-.592 1.877-.226.733-.435 1.476-.644 2.217-.209.751-.435 1.511-.574 2.272-.157.682-.435 1.37-.574 2.059-.104.517-.435 1.046-.574 1.571-.261.32-.07.647-.052.975.017.32.087.629.244.906.209.393.592.63 1.026.647.435.025.848-.158 1.131-.482.557-.63.874-1.398 1.131-2.187.435-1.345.713-2.738.944-4.144.191-1.168.348-2.335.487-3.511.052-.435.087-.871.139-1.306.017-.158.052-.313.087-.47.052-.223.226-.32.435-.241.157.061.296.158.435.259.557.407.978.933 1.322 1.528.557.967.926 2.01 1.27 3.062.348 1.08.644 2.177.926 3.273.157.63.296 1.262.452 1.892.139.554.296 1.101.452 1.647.139.482.296.956.505 1.415.226.482.504.933.891 1.32.383.393.944.63 1.557.63.626 0 1.131-.266 1.513-.742.435-.533.644-1.159.77-1.817.191-.985.261-1.99.313-2.985.087-1.571.122-3.142.157-4.713.017-1.101.017-2.203.017-3.304 0-.603-.017-1.206-.052-1.809-.035-.603-.139-1.187-.348-1.75-.244-.647-.644-1.187-1.218-1.571-.557-.37-1.183-.519-1.852-.519-.713 0-1.357.187-1.955.519-.609.331-1.131.777-1.618 1.262-.505.505-.944 1.08-1.357 1.673-.383.554-.731 1.133-1.079 1.712-.052.087-.104.173-.157.259-.052.087-.157.133-.261.087-.087-.035-.139-.115-.139-.209 0-.072.017-.144.035-.216.157-.63.313-1.262.47-1.892.157-.63.313-1.262.452-1.892.139-.63.296-1.262.435-1.892.139-.63.261-1.262.383-1.892.052-.267.104-.533.139-.8.035-.267.052-.533.052-.8 0-.37-.052-.741-.191-1.08-.244-.603-.731-.975-1.374-1.08-.609-.101-1.166.072-1.635.482-.505.435-.835.975-1.096 1.571-.313.708-.557 1.447-.77 2.194-.313 1.133-.574 2.272-.835 3.413-.087.382-.174.756-.244 1.138-.035.187-.139.32-.313.382-.191.072-.365.025-.505-.115-.157-.158-.261-.356-.348-.568-.157-.37-.261-.759-.348-1.153-.157-.708-.261-1.428-.348-2.147-.087-.698-.157-1.404-.209-2.101-.035-.435-.052-.871-.087-1.306-.017-.248-.052-.497-.087-.745-.052-.32-.191-.603-.435-.829-.296-.267-.644-.407-1.044-.407z"/>
             </svg>
