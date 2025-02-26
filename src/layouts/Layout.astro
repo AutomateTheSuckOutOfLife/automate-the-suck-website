@@ -23,6 +23,10 @@ const { title } = Astro.props;
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
         }
+        // Check for system preference if no theme is stored
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
         return 'light';
       })();
       if (theme === 'dark') {
