@@ -36,9 +36,9 @@ const articles = [
 
 <Layout title="Writing | Automate The Suck">
   <div class="max-w-4xl mx-auto px-4 py-16">
-    <h1 class="text-4xl md:text-5xl font-serif font-bold text-accent mb-12">Writing</h1>
+    <h1 class="text-4xl md:text-5xl font-serif font-bold text-accent dark:text-dark-text mb-12">Writing</h1>
     
-    <div class="text-lg text-accent leading-relaxed mb-8">
+    <div class="text-lg text-accent dark:text-dark-text leading-relaxed mb-8">
       <p>
         We share our thoughts, research, and insights on technology, accessibility, and digital empowerment. 
         Here you'll find articles about our projects, ethical considerations in tech, and practical guides 
@@ -48,24 +48,24 @@ const articles = [
     
     <div class="space-y-12 mt-12">
       {articles.map(article => (
-        <article class="border-b border-primary/20 pb-8 last:border-0">
+        <article class="bg-button-light dark:bg-dark-secondary border-2 border-primary/20 dark:border-dark-primary/20 rounded-lg p-6 hover:shadow-lg transition-shadow">
           <div class="flex flex-col md:flex-row md:items-start gap-4">
             <div class="md:w-1/4">
-              <span class="text-sm text-primary font-mono">{article.date}</span>
+              <span class="text-sm text-primary dark:text-link-dark-base font-mono">{article.date}</span>
               <div class="mt-2">
-                <span class="inline-block bg-[#F0FFF3] text-primary text-sm px-3 py-1 rounded-full">
+                <span class="inline-block bg-button-hover dark:bg-dark-primary text-primary dark:text-link-dark-base text-sm px-3 py-1 rounded-full">
                   {article.category}
                 </span>
               </div>
             </div>
             <div class="md:w-3/4">
-              <h2 class="text-2xl font-serif font-bold text-accent mb-3">
-                <a href={`/writing/${article.id}`} class="hover:text-primary transition-colors">
+              <h2 class="text-2xl font-serif font-bold text-accent dark:text-dark-text mb-3">
+                <a href={`/writing/${article.id}`} class="hover:text-primary dark:hover:text-link-dark-hover transition-colors">
                   {article.title}
                 </a>
               </h2>
-              <p class="text-accent/80 mb-4">{article.excerpt}</p>
-              <a href={`/writing/${article.id}`} class="text-primary hover:text-secondary transition-colors">
+              <p class="text-accent/80 dark:text-dark-text/80 mb-4">{article.excerpt}</p>
+              <a href={`/writing/${article.id}`} class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors">
                 Read more →
               </a>
             </div>
@@ -74,25 +74,31 @@ const articles = [
       ))}
     </div>
     
-    <div class="mt-16 bg-[#FFE5F4] rounded-lg p-8 text-center">
-      <h3 class="text-2xl font-serif font-bold text-accent mb-4">Subscribe to our newsletter</h3>
-      <p class="text-accent mb-6">
+    <div class="mt-16 bg-highlight-light dark:bg-highlight-dark rounded-lg p-8 text-center">
+      <h3 class="text-2xl font-serif font-bold text-accent dark:text-dark-text mb-4">Subscribe to our newsletter</h3>
+      <p class="text-accent dark:text-dark-text mb-6">
         Get our latest articles, project updates, and insights delivered directly to your inbox.
       </p>
       <form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
-        <input 
-          type="email" 
-          placeholder="Your email address" 
-          class="flex-1 px-4 py-3 rounded-lg border border-primary bg-white text-accent placeholder-accent/60 focus:outline-none focus:border-secondary"
-          required
-        />
-        <button 
-          type="submit" 
-          class="bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-secondary transition-colors"
-        >
-          Subscribe
-        </button>
+        <div class="flex-1 flex flex-col items-start">
+          <label for="email-input" class="text-left mb-2 text-accent dark:text-dark-text">Your email address</label>
+          <div class="flex w-full">
+            <input 
+              type="email" 
+              id="email-input"
+              name="email"
+              class="flex-1 px-4 py-3 rounded-l-lg border border-primary dark:border-dark-primary bg-white dark:bg-dark-secondary text-accent dark:text-dark-text focus:outline-none focus:border-secondary dark:focus:border-dark-accent"
+              required
+            />
+            <button 
+              type="submit" 
+              class="bg-primary text-white px-6 py-3 rounded-r-lg font-semibold hover:bg-secondary transition-colors dark:bg-link-dark-base dark:text-dark-background dark:hover:bg-link-dark-hover"
+            >
+              Subscribe
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   </div>
-</Layout> 
+</Layout>

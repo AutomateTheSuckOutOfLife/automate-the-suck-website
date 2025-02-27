@@ -354,6 +354,11 @@ import DarkWordMark from '../assets/darkmode-wordmark.svg?url';
     z-index: 8; /* Above wordmark (z-index: 5) but below vacuum (z-index: 10) */
   }
   
+  /* Add dark mode styling for dirt */
+  :global(.dark) .dirt {
+    color: var(--color-primary); /* Using primary color (purple/pink) for dark mode */
+  }
+  
   .dirt.small {
     font-size: 10px;
   }

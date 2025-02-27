@@ -1,0 +1,51 @@
+/* Theme CSS Variables
+   These variables provide an additional layer of control for animations and transitions
+   They should mirror the Tailwind config colors
+*/
+
+:root {
+  /* Base colors */
+  --color-background: #FAF9F6;
+  --color-primary: #3A625C;
+  --color-secondary: #4A7A73;
+  --color-accent: #343B34;
+  
+  /* Link colors */
+  --color-link: #3A625C;
+  --color-link-hover: #4A7A73;
+  
+  /* Button colors */
+  --color-button-light: #F0FFF3;
+  --color-button-hover: #FFCEF1;
+  --color-button-primary: #3A625C;
+  
+  /* Highlight colors */
+  --color-highlight-light: #FFE5F4;
+  
+  /* SVG filter variable for logos */
+  --svg-filter: none;
+}
+
+/* Dark mode variables */
+html.dark {
+  --color-background: #2C3830;
+  --color-primary: #984F83;
+  --color-secondary: #3A625C;
+  --color-accent: #E6EBE4;
+  --color-text: #FAFFFB;
+  
+  /* Link colors in dark mode */
+  --color-link: #FFCEF1;
+  --color-link-hover: #FFE5F4;
+  
+  /* Button colors in dark mode */
+  --color-button-light: #3A625C;
+  --color-button-hover: #2C3830;
+  --color-button-primary: #984F83;
+  
+  /* Highlight colors in dark mode */
+  --color-highlight-light: #984F83;
+  
+  /* SVG filter variable for logos in dark mode */
+  --svg-filter: brightness(0) invert(1);
+} 
