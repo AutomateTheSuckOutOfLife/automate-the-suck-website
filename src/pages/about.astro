@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import KaitlinPic from '../assets/kaitlin-prof.png?url';
 import DylanPic from '../assets/dylan-prof.png?url';
+import SocialFollow from '../components/SocialFollow.astro';
 ---
 
 <Layout title="About | Automate The Suck">
@@ -88,13 +89,6 @@ import DylanPic from '../assets/dylan-prof.png?url';
       </ul>
     </div>
     
-    <div class="bg-button-light border-2 border-primary rounded-lg p-8 text-center dark:bg-dark-primary dark:border-link-dark-base">
-      <p class="text-accent font-mono mb-6 dark:text-dark-text">
-        Support our mission by clicking the Donate Button.
-      </p>
-      <button class="bg-secondary text-white px-8 py-3 rounded-full font-semibold hover:bg-primary transition-colors w-full md:w-auto dark:bg-link-dark-base dark:text-dark-background dark:hover:bg-link-dark-hover">
-        Donate
-      </button>
-    </div>
+    <SocialFollow containerClass="w-full" />
   </div>
 </Layout> 
