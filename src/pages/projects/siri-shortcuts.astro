@@ -1,0 +1,177 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Siri Shortcuts | Automate The Suck">
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <div class="mb-8">
+      <a href="/projects" class="inline-flex items-center text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+        </svg>
+        Back to Projects
+      </a>
+    </div>
+    
+    <!-- Notification Banner -->
+    <div class="bg-primary/10 border-l-4 border-primary dark:bg-dark-primary/10 dark:border-dark-primary p-4 rounded-r-lg mb-8">
+      <div class="flex">
+        <div class="flex-shrink-0">
+          <svg class="h-5 w-5 text-primary dark:text-link-dark-base" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <div class="ml-3">
+          <p class="text-sm text-accent dark:text-dark-text">
+            <span class="font-medium">Coming Soon!</span> We're currently developing our first set of Siri Shortcuts. Check back soon or <a href="/contact" class="font-medium underline text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover">contact us</a> to be notified when they're available.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <h1 class="text-4xl md:text-5xl font-serif font-bold text-accent dark:text-dark-text mb-6">Siri Shortcuts</h1>
+    
+    <div class="text-lg text-accent dark:text-dark-text leading-relaxed mb-16">
+      <p class="mb-6">
+        Siri Shortcuts are the magic built into your phone—and using them makes you the wizard. With them, you can create simple tools that do exactly what you need, without downloading another app or learning to code.
+      </p>
+      <p class="mb-6">
+        Siri Shortcuts are built into iOS, iPadOS, macOS, and watchOS, and they work across Apple devices: iPhone, iPad, Mac, Apple Watch, and Apple Vision Pro. They work seamlessly across Apple devices, letting you automate tasks and simplify your daily life—no coding required.
+      </p>
+      
+      <div class="border border-primary/20 dark:border-dark-primary/20 rounded-lg mb-12">
+        <button id="setup-toggle" class="w-full flex justify-between items-center p-4 text-left bg-button-light dark:bg-dark-secondary rounded-t-lg">
+          <h2 class="text-2xl font-serif font-bold text-accent dark:text-dark-text">How to Set Up Your First Siri Shortcut</h2>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform transition-transform duration-300" id="chevron-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        
+        <div id="setup-content" class="hidden p-6 border-t border-primary/20 dark:border-dark-primary/20">
+          <ol class="list-decimal pl-6 space-y-4 mb-8">
+            <li>
+              <strong>Download a shortcut</strong> from our Cloud share link. Follow these steps to set it up on your device:
+            </li>
+            <li>
+              <strong>Tap the link</strong> in the Shortcuts section below to open the Shortcut in the Shortcuts app.
+            </li>
+            <li>
+              If this is your first time using Shortcuts, you may be prompted to open the Shortcuts app. The system will prompt you to "Allow" untrusted shortcuts.
+            </li>
+            <li>
+              <strong>Review the shortcut</strong> before adding it. You can see all the actions it will perform.
+            </li>
+            <li>
+              <strong>Tap "Add Shortcut"</strong> in the App Store view and install it.
+            </li>
+            <li>
+              If the shortcut includes special permissions (like accessing your contacts, or sending messages), you may need to tap "Allow" when prompted.
+            </li>
+          </ol>
+          
+          <h3 class="text-2xl font-serif font-bold text-accent dark:text-dark-text mt-10 mb-4">Customize Shortcuts</h3>
+          <p class="mb-6">
+            Some shortcuts allow you to customize them to fit your needs. Use existing shortcuts as templates, modify them, and make them your own.
+          </p>
+          
+          <h3 class="text-2xl font-serif font-bold text-accent dark:text-dark-text mt-10 mb-4">Run Your Shortcut</h3>
+          <p class="mb-6">
+            Open the Shortcuts app, tap on your new shortcut, or trigger it using Siri by saying "Hey Siri, [Shortcut Name]".
+          </p>
+          
+          <h3 class="text-2xl font-serif font-bold text-accent dark:text-dark-text mt-10 mb-4">Home Screen Access</h3>
+          <p class="mb-6">
+            Add shortcuts to your home screen for quick access. Long-press the shortcut, select "Add to Home Screen," and it'll function just like an app!
+          </p>
+          
+          <h3 class="text-2xl font-serif font-bold text-accent dark:text-dark-text mt-10 mb-4">Voice Activation</h3>
+          <p class="mb-6">
+            Simply say "Hey Siri, [Shortcut Name]" — and the shortcut runs! Add to your morning routine, use it in the car, or add it to Home Screen widgets. Welcome to frictionless living.
+          </p>
+        </div>
+      </div>
+      
+      <h2 class="text-3xl font-serif font-bold text-accent dark:text-dark-text mt-12 mb-8">Our Shortcuts</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <!-- Daily Journal Shortcut -->
+        <div class="bg-button-light dark:bg-dark-secondary border-2 border-primary dark:border-dark-primary rounded-lg p-6 hover:shadow-lg transition-shadow">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-serif font-bold dark:text-dark-text">Daily Journal</h3>
+            <span class="inline-block bg-primary/20 text-primary dark:bg-dark-primary/20 dark:text-link-dark-base text-xs px-2 py-1 rounded-full">Coming Soon</span>
+          </div>
+          <p class="text-sm text-accent/70 dark:text-dark-text/70 mb-4">#Productivity #Journaling</p>
+          <p class="mb-4 dark:text-dark-text/80">Creates a new journal entry with date, weather, and customizable prompts. Perfect for building a daily reflection habit without opening another app.</p>
+          <a href="#" class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors opacity-50 pointer-events-none">Download →</a>
+        </div>
+
+        <!-- Meeting Notes Shortcut -->
+        <div class="bg-button-light dark:bg-dark-secondary border-2 border-primary dark:border-dark-primary rounded-lg p-6 hover:shadow-lg transition-shadow">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-serif font-bold dark:text-dark-text">Meeting Notes</h3>
+            <span class="inline-block bg-primary/20 text-primary dark:bg-dark-primary/20 dark:text-link-dark-base text-xs px-2 py-1 rounded-full">Coming Soon</span>
+          </div>
+          <p class="text-sm text-accent/70 dark:text-dark-text/70 mb-4">#Work #Productivity</p>
+          <p class="mb-4 dark:text-dark-text/80">Quickly create a meeting notes template with attendees, agenda items, and action items. Saves directly to Notes app with proper formatting.</p>
+          <a href="#" class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors opacity-50 pointer-events-none">Download →</a>
+        </div>
+
+        <!-- Water Reminder Shortcut -->
+        <div class="bg-button-light dark:bg-dark-secondary border-2 border-primary dark:border-dark-primary rounded-lg p-6 hover:shadow-lg transition-shadow">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-serif font-bold dark:text-dark-text">Water Reminder</h3>
+            <span class="inline-block bg-primary/20 text-primary dark:bg-dark-primary/20 dark:text-link-dark-base text-xs px-2 py-1 rounded-full">Coming Soon</span>
+          </div>
+          <p class="text-sm text-accent/70 dark:text-dark-text/70 mb-4">#Health #Automation</p>
+          <p class="mb-4 dark:text-dark-text/80">Set up customizable water intake reminders throughout your day. Tracks your progress and adjusts based on your activity level and weather.</p>
+          <a href="#" class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors opacity-50 pointer-events-none">Download →</a>
+        </div>
+
+        <!-- Quick Expense Tracker -->
+        <div class="bg-button-light dark:bg-dark-secondary border-2 border-primary dark:border-dark-primary rounded-lg p-6 hover:shadow-lg transition-shadow">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-serif font-bold dark:text-dark-text">Quick Expense</h3>
+            <span class="inline-block bg-primary/20 text-primary dark:bg-dark-primary/20 dark:text-link-dark-base text-xs px-2 py-1 rounded-full">Coming Soon</span>
+          </div>
+          <p class="text-sm text-accent/70 dark:text-dark-text/70 mb-4">#Finance #Tracking</p>
+          <p class="mb-4 dark:text-dark-text/80">Log expenses on the go with categories and notes. Saves to a spreadsheet and provides monthly summaries of your spending habits.</p>
+          <a href="#" class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors opacity-50 pointer-events-none">Download →</a>
+        </div>
+      </div>
+      
+      <div class="bg-primary dark:bg-dark-primary rounded-lg p-8 text-center">
+        <h3 class="text-2xl font-serif font-bold text-white dark:text-dark-text mb-4">Have a shortcut idea?</h3>
+        <p class="text-white dark:text-dark-text mb-6">
+          We're always looking to expand our collection of useful shortcuts. Let us know what you'd like to see!
+        </p>
+        <a href="/contact" class="inline-block bg-secondary text-white px-8 py-3 rounded-full font-semibold hover:bg-button-hover transition-colors dark:bg-link-dark-base dark:text-dark-background dark:hover:bg-link-dark-hover">
+          Suggest a Shortcut
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  // Toggle functionality for the setup instructions
+  document.addEventListener('astro:page-load', () => {
+    const setupToggle = document.getElementById('setup-toggle');
+    const setupContent = document.getElementById('setup-content');
+    const chevronIcon = document.getElementById('chevron-icon');
+    
+    if (setupToggle && setupContent && chevronIcon) {
+      setupToggle.addEventListener('click', () => {
+        setupContent.classList.toggle('hidden');
+        chevronIcon.classList.toggle('rotate-180');
+        
+        // Add aria attributes for accessibility
+        const isExpanded = !setupContent.classList.contains('hidden');
+        setupToggle.setAttribute('aria-expanded', isExpanded.toString());
+      });
+      
+      // Set initial aria attributes
+      setupToggle.setAttribute('aria-expanded', 'false');
+      setupToggle.setAttribute('aria-controls', 'setup-content');
+    }
+  });
+</script> 
