@@ -105,182 +105,227 @@ import DarkWordMark from '../assets/darkmode-wordmark.svg?url';
   </button>
 </div>
 
-<script type="module">
-  const vacuumLogo = document.getElementById('vacuum-logo');
-  const heroSection = document.getElementById('hero-section');
-  const dirtParticles = document.querySelectorAll('.dirt');
-  const pauseBtn = document.getElementById('pause-btn');
+<script>
+  document.addEventListener('astro:page-load', () => {
+    // Get references to DOM elements
+    const vacuumLogo = document.getElementById('vacuum-logo');
+    const heroSection = document.getElementById('hero-section');
+    const dirtParticles = document.querySelectorAll('.dirt');
+    const pauseBtn = document.getElementById('pause-btn');
 
-  let posX = 100; // Initial position
-  let posY = 100;
-  let speed = 1;
-  let angle = Math.floor(Math.random() * 360);
-  let moving = true;
-  let docked = false;
-  let paused = false;  // New variable to track pause state
-
-  // Function to start or stop the animation
-  function toggleAnimation(shouldPause) {
-    paused = shouldPause;
-    pauseBtn.classList.toggle('playing', paused);
-    
-    // Update the aria-label to match the current state
-    pauseBtn.setAttribute('aria-label', paused ? 'Play animation' : 'Pause animation');
-    
-    if (!paused && !docked) {
-      moving = true;
-      moveVacuum();
-    }
-  }
-
-  // Add event listener for the pause button
-  pauseBtn.addEventListener('click', () => {
-    toggleAnimation(!paused);
-  });
-
-  // Randomly place dirt in the hero section
-  function placeDirt() {
-    dirtParticles.forEach(dirt => {
-      const maxX = heroSection.clientWidth - 20; // Offset to keep it inside
-      const maxY = heroSection.clientHeight - 20;
-      const randomX = Math.floor(Math.random() * maxX);
-      const randomY = Math.floor(Math.random() * maxY);
-      
-      dirt.style.left = `${randomX}px`;
-      dirt.style.top = `${randomY}px`;
-    });
-  }
-
-  // Function to dock the logo in the top left corner
-  function dockLogo() {
-    moving = false;
-    docked = true;
-    vacuumLogo.style.transition = 'left 1s ease, top 1s ease, transform 1s ease';
-    
-    // Get the word mark element and calculate its position
-    const wordMark = document.querySelector('nav img');
-    if (wordMark) {
-      const wordMarkRect = wordMark.getBoundingClientRect();
-      const heroRect = heroSection.getBoundingClientRect();
-      
-      // Position the vacuum logo underneath the wordmark
-      // Calculate the left position to align with the left edge of the wordmark
-      // Add a small offset (20px) to position it slightly to the right of the wordmark's left edge
-      const dockLeft = wordMarkRect.left - heroRect.left + 20;
-      
-      // Position it below the wordmark with a small offset
-      vacuumLogo.style.left = `${dockLeft}px`;
-      vacuumLogo.style.top = '10px';
-      vacuumLogo.style.transform = 'rotate(0deg)';
-    }
-  }
-
-  // Modify checkDirtPickup to call dockLogo() if no dirt remains
-  function checkDirtPickup() {
-    dirtParticles.forEach(dirt => {
-      const dirtRect = dirt.getBoundingClientRect();
-      const vacuumRect = vacuumLogo.getBoundingClientRect();
-
-      if (
-        vacuumRect.left < dirtRect.right &&
-        vacuumRect.right > dirtRect.left &&
-        vacuumRect.top < dirtRect.bottom &&
-        vacuumRect.bottom > dirtRect.top
-      ) {
-        // Suck up animation
-        dirt.style.transform = 'scale(0)';
-        dirt.style.opacity = '0';
-        setTimeout(() => dirt.remove(), 500); // Remove dirt after animation
-      }
-    });
-    
-    // After processing, if there is no dirt left, dock the logo
-    if (document.querySelectorAll('.dirt').length === 0 && !docked) {
-      dockLogo();
-    }
-  }
-
-  // Randomize turning angles for more natural movement
-  function getRandomTurn() {
-    return Math.floor(Math.random() * 91) + 45; // Random between 45° and 135°
-  }
-
-  // Update moveVacuum to stop moving if docked or paused
-  function moveVacuum() {
-    if (docked) {
-      return; // Stop movement if logo is docked
-    }
-    if (paused) {
-      return; // Pause movement if paused
-    }
-
-    if (!moving) {
-      requestAnimationFrame(moveVacuum);
+    // If any element is missing, exit early
+    if (!vacuumLogo || !heroSection || !dirtParticles.length || !pauseBtn) {
+      console.warn("Missing required elements for vacuum animation");
       return;
     }
 
-    const maxX = heroSection.clientWidth - vacuumLogo.clientWidth;
-    const maxY = heroSection.clientHeight - vacuumLogo.clientHeight;
+    // Animation state
+    let posX = 100;
+    let posY = 100;
+    let speed = 1;
+    let angle = Math.floor(Math.random() * 360);
+    let moving = true;
+    let docked = false;
+    let paused = false;
+    let animationFrame = null;
 
-    const radians = (angle * Math.PI) / 180;
-    const deltaX = Math.cos(radians) * speed;
-    const deltaY = Math.sin(radians) * speed;
-
-    posX += deltaX;
-    posY += deltaY;
-
-    let hitWall = false;
-    let newAngle = angle;
-
-    // Detect wall collisions
-    if (posX >= maxX || posX <= 0) {
-      hitWall = true;
-      newAngle = 180 - angle + getRandomTurn();
-    }
-    if (posY >= maxY || posY <= 0) {
-      hitWall = true;
-      newAngle = -angle + getRandomTurn();
-    }
-
-    if (hitWall) {
-      // Clamp position to boundaries
-      posX = Math.min(maxX, Math.max(0, posX));
-      posY = Math.min(maxY, Math.max(0, posY));
-      vacuumLogo.style.left = `${posX}px`;
-      vacuumLogo.style.top = `${posY}px`;
+    // Function to start or stop the animation
+    function toggleAnimation(shouldPause) {
+      paused = shouldPause;
+      pauseBtn.classList.toggle('playing', paused);
       
-      moving = false;
-      setTimeout(() => {
-        angle = (newAngle + 360) % 360;
+      // Update the aria-label to match the current state
+      pauseBtn.setAttribute('aria-label', paused ? 'Play animation' : 'Pause animation');
+      
+      if (!paused && !docked) {
         moving = true;
         moveVacuum();
-      }, 500);
-      return;
+      }
     }
 
-    // Update position and check for dirt
-    vacuumLogo.style.left = `${posX}px`;
-    vacuumLogo.style.top = `${posY}px`;
-    vacuumLogo.style.transform = `rotate(${angle + 90}deg)`;
+    // Add event listener for the pause button
+    pauseBtn.addEventListener('click', () => {
+      toggleAnimation(!paused);
+    });
 
-    checkDirtPickup();
-    requestAnimationFrame(moveVacuum);
-  }
+    // Randomly place dirt in the hero section
+    function placeDirt() {
+      dirtParticles.forEach(dirt => {
+        const maxX = heroSection.clientWidth - 20; // Offset to keep it inside
+        const maxY = heroSection.clientHeight - 20;
+        const randomX = Math.floor(Math.random() * maxX);
+        const randomY = Math.floor(Math.random() * maxY);
+        
+        dirt.style.left = `${randomX}px`;
+        dirt.style.top = `${randomY}px`;
+        
+        // Reset dirt appearance
+        dirt.style.transform = 'scale(1)';
+        dirt.style.opacity = '1';
+      });
+    }
 
-  // Function to update motion preference state
-  function updateMotionPreference() {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    toggleAnimation(mediaQuery.matches);
-  }
+    // Function to dock the logo in the top left corner
+    function dockLogo() {
+      moving = false;
+      docked = true;
+      vacuumLogo.style.transition = 'left 1s ease, top 1s ease, transform 1s ease';
+      
+      // Get the word mark element and calculate its position
+      const wordMark = document.querySelector('nav img');
+      if (wordMark) {
+        const wordMarkRect = wordMark.getBoundingClientRect();
+        const heroRect = heroSection.getBoundingClientRect();
+        
+        // Position the vacuum logo underneath the wordmark
+        // Calculate the left position to align with the left edge of the wordmark
+        // Add a small offset (20px) to position it slightly to the right of the wordmark's left edge
+        const dockLeft = wordMarkRect.left - heroRect.left + 20;
+        
+        // Position it below the wordmark with a small offset
+        vacuumLogo.style.left = `${dockLeft}px`;
+        vacuumLogo.style.top = '10px';
+        vacuumLogo.style.transform = 'rotate(0deg)';
+      }
+    }
 
-  // Initialize after DOM content is loaded
-  window.addEventListener('DOMContentLoaded', () => {
+    // Modify checkDirtPickup to call dockLogo() if no dirt remains
+    function checkDirtPickup() {
+      dirtParticles.forEach(dirt => {
+        const dirtRect = dirt.getBoundingClientRect();
+        const vacuumRect = vacuumLogo.getBoundingClientRect();
+
+        if (
+          vacuumRect.left < dirtRect.right &&
+          vacuumRect.right > dirtRect.left &&
+          vacuumRect.top < dirtRect.bottom &&
+          vacuumRect.bottom > dirtRect.top &&
+          dirt.style.opacity !== '0' // Only pick up visible dirt
+        ) {
+          // Suck up animation
+          dirt.style.transform = 'scale(0)';
+          dirt.style.opacity = '0';
+        }
+      });
+      
+      // After processing, if there is no visible dirt left, dock the logo
+      const visibleDirt = Array.from(dirtParticles).filter(dirt => dirt.style.opacity !== '0');
+      if (visibleDirt.length === 0 && !docked) {
+        dockLogo();
+      }
+    }
+
+    // Randomize turning angles for more natural movement
+    function getRandomTurn() {
+      return Math.floor(Math.random() * 91) + 45; // Random between 45° and 135°
+    }
+
+    // Update moveVacuum to stop moving if docked or paused
+    function moveVacuum() {
+      if (docked) {
+        return; // Stop movement if logo is docked
+      }
+      if (paused) {
+        return; // Pause movement if paused
+      }
+
+      if (!moving) {
+        animationFrame = requestAnimationFrame(moveVacuum);
+        return;
+      }
+
+      const maxX = heroSection.clientWidth - vacuumLogo.clientWidth;
+      const maxY = heroSection.clientHeight - vacuumLogo.clientHeight;
+
+      const radians = (angle * Math.PI) / 180;
+      const deltaX = Math.cos(radians) * speed;
+      const deltaY = Math.sin(radians) * speed;
+
+      posX += deltaX;
+      posY += deltaY;
+
+      let hitWall = false;
+      let newAngle = angle;
+
+      // Detect wall collisions
+      if (posX >= maxX || posX <= 0) {
+        hitWall = true;
+        newAngle = 180 - angle + getRandomTurn();
+      }
+      if (posY >= maxY || posY <= 0) {
+        hitWall = true;
+        newAngle = -angle + getRandomTurn();
+      }
+
+      if (hitWall) {
+        // Clamp position to boundaries
+        posX = Math.min(maxX, Math.max(0, posX));
+        posY = Math.min(maxY, Math.max(0, posY));
+        vacuumLogo.style.left = `${posX}px`;
+        vacuumLogo.style.top = `${posY}px`;
+        
+        moving = false;
+        setTimeout(() => {
+          angle = (newAngle + 360) % 360;
+          moving = true;
+          moveVacuum();
+        }, 500);
+        return;
+      }
+
+      // Update position and check for dirt
+      vacuumLogo.style.left = `${posX}px`;
+      vacuumLogo.style.top = `${posY}px`;
+      vacuumLogo.style.transform = `rotate(${angle + 90}deg)`;
+
+      checkDirtPickup();
+      animationFrame = requestAnimationFrame(moveVacuum);
+    }
+
+    // Function to update motion preference state
+    function updateMotionPreference() {
+      const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      toggleAnimation(mediaQuery.matches);
+    }
+
+    // Function to reset and initialize the animation
+    function resetAnimation() {
+      console.log("Resetting vacuum animation");
+      
+      // Cancel any existing animation frame
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+        animationFrame = null;
+      }
+      
+      // Reset variables
+      posX = 100;
+      posY = 100;
+      angle = Math.floor(Math.random() * 360);
+      moving = true;
+      docked = false;
+      
+      // Reset vacuum position
+      vacuumLogo.style.transition = 'none';
+      vacuumLogo.style.left = `${posX}px`;
+      vacuumLogo.style.top = `${posY}px`;
+      vacuumLogo.style.transform = `rotate(${angle + 90}deg)`;
+      
+      // Place dirt and start animation
+      placeDirt();
+      
+      // Start animation if not paused
+      if (!paused) {
+        moveVacuum();
+      }
+    }
+
+    // Listen for the custom reset event from Navigation.astro
+    document.addEventListener('reset-vacuum-animation', resetAnimation);
+
+    // Initialize
     updateMotionPreference();
-    // Optionally, begin placing dirt and starting the animation if not paused
-    placeDirt();
-    if (!paused) {
-      moveVacuum();
-    }
+    resetAnimation();
 
     // Listen for changes in motion preference
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');

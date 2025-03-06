@@ -68,11 +68,18 @@ const currentPath = new URL(Astro.request.url).pathname;
     const homeLink = document.getElementById('home-link');
     if (homeLink) {
       homeLink.addEventListener('click', (e) => {
-        // Only force refresh if we're already on the homepage
+        // If we're already on the homepage, prevent default and dispatch a custom event
         if (window.location.pathname === '/' || window.location.pathname === '') {
           e.preventDefault();
-          window.location.reload();
+          
+          // Dispatch a custom event that the VacuumHero component can listen for
+          const resetEvent = new CustomEvent('reset-vacuum-animation');
+          document.dispatchEvent(resetEvent);
+          
+          // Scroll to top for good measure
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+        // If we're on another page, let the normal link behavior take us to the homepage
       });
     }
   });
