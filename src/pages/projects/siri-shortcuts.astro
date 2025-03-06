@@ -13,22 +13,6 @@ import Layout from '../../layouts/Layout.astro';
       </a>
     </div>
     
-    <!-- Notification Banner -->
-    <div class="bg-primary/10 border-l-4 border-primary dark:bg-dark-primary/10 dark:border-dark-primary p-4 rounded-r-lg mb-8">
-      <div class="flex">
-        <div class="flex-shrink-0">
-          <svg class="h-5 w-5 text-primary dark:text-link-dark-base" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-          </svg>
-        </div>
-        <div class="ml-3">
-          <p class="text-sm text-accent dark:text-dark-text">
-            <span class="font-medium">Coming Soon!</span> We're currently developing our first set of Siri Shortcuts. Check back soon or <a href="/contact" class="font-medium underline text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover">contact us</a> to be notified when they're available.
-          </p>
-        </div>
-      </div>
-    </div>
-    
     <h1 class="text-4xl md:text-5xl font-serif font-bold text-accent dark:text-dark-text mb-6">Siri Shortcuts</h1>
     
     <div class="text-lg text-accent dark:text-dark-text leading-relaxed mb-16">
@@ -94,48 +78,60 @@ import Layout from '../../layouts/Layout.astro';
       <h2 class="text-3xl font-serif font-bold text-accent dark:text-dark-text mt-12 mb-8">Our Shortcuts</h2>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-        <!-- Daily Journal Shortcut -->
+        <!-- Microjournal Shortcut -->
         <div class="bg-button-light dark:bg-dark-secondary border-2 border-primary dark:border-dark-primary rounded-lg p-6 hover:shadow-lg transition-shadow">
-          <div class="flex justify-between items-start mb-2">
-            <h3 class="text-xl font-serif font-bold dark:text-dark-text">Daily Journal</h3>
-            <span class="inline-block bg-primary/20 text-primary dark:bg-dark-primary/20 dark:text-link-dark-base text-xs px-2 py-1 rounded-full">Coming Soon</span>
-          </div>
+          <h3 class="text-xl font-serif font-bold mb-2 dark:text-dark-text">Microjournal 📓</h3>
           <p class="text-sm text-accent/70 dark:text-dark-text/70 mb-4">#Productivity #Journaling</p>
-          <p class="mb-4 dark:text-dark-text/80">Creates a new journal entry with date, weather, and customizable prompts. Perfect for building a daily reflection habit without opening another app.</p>
-          <a href="#" class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors opacity-50 pointer-events-none">Download →</a>
+          <p class="mb-4 dark:text-dark-text/80">A quick and simple way to log your thoughts, reflections, or key moments of the day. Perfect for capturing ideas or emotions in the moment.</p>
+          <a href="https://www.icloud.com/shortcuts/123456" class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors">Download →</a>
         </div>
 
-        <!-- Meeting Notes Shortcut -->
+        <!-- What's My Workout Shortcut -->
         <div class="bg-button-light dark:bg-dark-secondary border-2 border-primary dark:border-dark-primary rounded-lg p-6 hover:shadow-lg transition-shadow">
-          <div class="flex justify-between items-start mb-2">
-            <h3 class="text-xl font-serif font-bold dark:text-dark-text">Meeting Notes</h3>
-            <span class="inline-block bg-primary/20 text-primary dark:bg-dark-primary/20 dark:text-link-dark-base text-xs px-2 py-1 rounded-full">Coming Soon</span>
-          </div>
-          <p class="text-sm text-accent/70 dark:text-dark-text/70 mb-4">#Work #Productivity</p>
-          <p class="mb-4 dark:text-dark-text/80">Quickly create a meeting notes template with attendees, agenda items, and action items. Saves directly to Notes app with proper formatting.</p>
-          <a href="#" class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors opacity-50 pointer-events-none">Download →</a>
+          <h3 class="text-xl font-serif font-bold mb-2 dark:text-dark-text">What's My Workout 🏋️‍♀️</h3>
+          <p class="text-sm text-accent/70 dark:text-dark-text/70 mb-4">#Health #Fitness</p>
+          <p class="mb-4 dark:text-dark-text/80">Helps you stick to your training plan by instantly telling you what your workout is for today or tomorrow at the touch of a button. No need to check a calendar—just tap and go!</p>
+          <a href="https://www.icloud.com/shortcuts/123456" class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors">Download →</a>
         </div>
 
-        <!-- Water Reminder Shortcut -->
+        <!-- Scales Test Shortcut -->
         <div class="bg-button-light dark:bg-dark-secondary border-2 border-primary dark:border-dark-primary rounded-lg p-6 hover:shadow-lg transition-shadow">
-          <div class="flex justify-between items-start mb-2">
-            <h3 class="text-xl font-serif font-bold dark:text-dark-text">Water Reminder</h3>
-            <span class="inline-block bg-primary/20 text-primary dark:bg-dark-primary/20 dark:text-link-dark-base text-xs px-2 py-1 rounded-full">Coming Soon</span>
-          </div>
-          <p class="text-sm text-accent/70 dark:text-dark-text/70 mb-4">#Health #Automation</p>
-          <p class="mb-4 dark:text-dark-text/80">Set up customizable water intake reminders throughout your day. Tracks your progress and adjusts based on your activity level and weather.</p>
-          <a href="#" class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors opacity-50 pointer-events-none">Download →</a>
+          <h3 class="text-xl font-serif font-bold mb-2 dark:text-dark-text">Scales Test 🎵</h3>
+          <p class="text-sm text-accent/70 dark:text-dark-text/70 mb-4">#Music #Practice</p>
+          <p class="mb-4 dark:text-dark-text/80">A music practice tool that randomly selects scales for you to play and allows you to rate your performance, automatically saving the results in your Notes app for tracking progress.</p>
+          <a href="https://www.icloud.com/shortcuts/123456" class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors">Download →</a>
         </div>
 
-        <!-- Quick Expense Tracker -->
+        <!-- Calculate Tip Shortcut -->
         <div class="bg-button-light dark:bg-dark-secondary border-2 border-primary dark:border-dark-primary rounded-lg p-6 hover:shadow-lg transition-shadow">
-          <div class="flex justify-between items-start mb-2">
-            <h3 class="text-xl font-serif font-bold dark:text-dark-text">Quick Expense</h3>
-            <span class="inline-block bg-primary/20 text-primary dark:bg-dark-primary/20 dark:text-link-dark-base text-xs px-2 py-1 rounded-full">Coming Soon</span>
-          </div>
-          <p class="text-sm text-accent/70 dark:text-dark-text/70 mb-4">#Finance #Tracking</p>
-          <p class="mb-4 dark:text-dark-text/80">Log expenses on the go with categories and notes. Saves to a spreadsheet and provides monthly summaries of your spending habits.</p>
-          <a href="#" class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors opacity-50 pointer-events-none">Download →</a>
+          <h3 class="text-xl font-serif font-bold mb-2 dark:text-dark-text">Calculate Tip 💰</h3>
+          <p class="text-sm text-accent/70 dark:text-dark-text/70 mb-4">#Finance #Utility</p>
+          <p class="mb-4 dark:text-dark-text/80">A fast tip calculator that helps you determine the total amount to pay, including different tip percentages, for easy bill splitting.</p>
+          <a href="https://www.icloud.com/shortcuts/123456" class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors">Download →</a>
+        </div>
+        
+        <!-- Share a Website Shortcut -->
+        <div class="bg-button-light dark:bg-dark-secondary border-2 border-primary dark:border-dark-primary rounded-lg p-6 hover:shadow-lg transition-shadow">
+          <h3 class="text-xl font-serif font-bold mb-2 dark:text-dark-text">Share a Website 🌐</h3>
+          <p class="text-sm text-accent/70 dark:text-dark-text/70 mb-4">#Sharing #Utility</p>
+          <p class="mb-4 dark:text-dark-text/80">Quickly Airdrop a website you want to share, like your personal site, social media, Etsy shop, or any other link you frequently send to others.</p>
+          <a href="https://www.icloud.com/shortcuts/123456" class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors">Download →</a>
+        </div>
+        
+        <!-- Pomodoro Break Shortcut -->
+        <div class="bg-button-light dark:bg-dark-secondary border-2 border-primary dark:border-dark-primary rounded-lg p-6 hover:shadow-lg transition-shadow">
+          <h3 class="text-xl font-serif font-bold mb-2 dark:text-dark-text">Pomodoro Break ⏳</h3>
+          <p class="text-sm text-accent/70 dark:text-dark-text/70 mb-4">#Productivity #Focus</p>
+          <p class="mb-4 dark:text-dark-text/80">Provides a list of short break activities (5-minute or 15-minute) and sets a timer on your device to keep you on track before diving back into work or study.</p>
+          <a href="https://www.icloud.com/shortcuts/123456" class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors">Download →</a>
+        </div>
+        
+        <!-- enCounter Shortcut -->
+        <div class="bg-button-light dark:bg-dark-secondary border-2 border-primary dark:border-dark-primary rounded-lg p-6 hover:shadow-lg transition-shadow">
+          <h3 class="text-xl font-serif font-bold mb-2 dark:text-dark-text">enCounter 🔢</h3>
+          <p class="text-sm text-accent/70 dark:text-dark-text/70 mb-4">#Utility #Tracking</p>
+          <p class="mb-4 dark:text-dark-text/80">A simple counter tool to track anything, originally designed for counting Pokémon encounters while Shiny hunting. Also great for tallying crochet stitches, workout reps, or any other running count.</p>
+          <a href="https://www.icloud.com/shortcuts/123456" class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors">Download →</a>
         </div>
       </div>
       
