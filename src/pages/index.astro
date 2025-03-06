@@ -59,25 +59,23 @@ import SocialFollow from '../components/SocialFollow.astro';
 
         <!-- Featured Article -->
         <div class="bg-button-hover border-2 border-primary rounded-lg overflow-hidden hover:shadow-lg transition-shadow dark:bg-dark-primary dark:border-link-dark-base">
-          <div class="aspect-video bg-primary/10 dark:bg-dark-primary/10"></div>
+          <div class="aspect-video bg-primary/10 dark:bg-dark-primary/10 relative">
+            <div class="absolute inset-0 bg-button-hover opacity-30 dark:bg-dark-primary/30 z-10"></div>
+            <img 
+              src="/images/blog/shortcuts-instead-of-apps/shortcuts-blog-design.png"
+              alt="Person using their phone in a dimly lit environment, illuminated by the warm glow of their screen"
+              class="w-full h-full object-cover relative"
+            />
+          </div>
           <div class="p-6">
             <span class="inline-block bg-primary text-white text-sm px-3 py-1 rounded-full mb-4 dark:bg-link-dark-base dark:text-dark-background">
               Latest Article
             </span>
-            <h3 class="text-2xl font-serif font-bold text-accent dark:text-dark-text mb-2">Making AI Accessible for Everyone</h3>
-            <p class="text-accent/80 mb-4 dark:text-dark-text/80">How we can ensure that AI tools are designed with accessibility in mind from the start.</p>
-            <a href="/writing/ai-accessibility" class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors">Read More →</a>
+            <h3 class="text-2xl font-serif font-bold text-accent dark:text-dark-text mb-2">You Don't Need Another App: Build a Shortcut Instead</h3>
+            <p class="text-accent/80 mb-4 dark:text-dark-text/80">There's an app for that...but why not take back control and make your own?</p>
+            <a href="/writing/shortcuts-instead-of-apps" class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors">Read More →</a>
           </div>
         </div>
-      </div>
-      
-      <div class="text-center">
-        <a 
-          href="/writing" 
-          class="inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-secondary transition-colors dark:bg-link-dark-base dark:text-dark-background dark:hover:bg-link-dark-hover"
-        >
-          View All Articles
-        </a>
       </div>
     </div>
   </section>
@@ -145,29 +143,23 @@ import SocialFollow from '../components/SocialFollow.astro';
         </p>
       </div>
       
-      <div class="bg-primary rounded-lg p-8 text-center dark:bg-dark-primary">
-        <div class="flex items-center justify-center gap-4 mb-6">
-          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="24" height="24" rx="12" fill="#3A625C" class="dark:fill-dark-secondary"/>
-            <path d="M17 8L12 13L7 8M7 8H17H7ZM17 8V16C17 16.2652 16.8946 16.5196 16.7071 16.7071C16.5196 16.8946 16.2652 17 16 17H8C7.73478 17 7.48043 16.8946 7.29289 16.7071C7.10536 16.5196 7 16.2652 7 16V8V8Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <div class="font-mono text-white dark:text-dark-text">
-            <div>
-              <a href="mailto:dylan@automatethesuckoutof.life" class="hover:text-button-light dark:hover:text-link-dark-hover transition-colors">
-                dylan@automatethesuckoutof.life
-              </a>
-            </div>
-            <div>
-              <a href="mailto:kaitlin@automatethesuckoutof.life" class="hover:text-button-light dark:hover:text-link-dark-hover transition-colors">
-                kaitlin@automatethesuckoutof.life
-              </a>
-            </div>
+      <div class="bg-button-hover border-2 border-primary rounded-lg p-8 text-center dark:bg-dark-primary dark:border-link-dark-base">
+        <div class="font-mono text-accent dark:text-dark-text">
+          <div>
+            <a href="mailto:dylan@automatethesuckoutof.life" class="hover:text-link-hover dark:hover:text-link-dark-hover transition-colors">
+              dylan@automatethesuckoutof.life
+            </a>
+          </div>
+          <div>
+            <a href="mailto:kaitlin@automatethesuckoutof.life" class="hover:text-link-hover dark:hover:text-link-dark-hover transition-colors">
+              kaitlin@automatethesuckoutof.life
+            </a>
           </div>
         </div>
         
         <a 
           href="/contact" 
-          class="inline-block bg-secondary text-white px-8 py-3 rounded-full font-semibold hover:bg-button-hover transition-colors dark:bg-link-dark-base dark:text-dark-background dark:hover:bg-link-dark-hover"
+          class="inline-block mt-6 bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-secondary transition-colors dark:bg-link-dark-base dark:text-dark-background dark:hover:bg-link-dark-hover"
         >
           Contact Us
         </a>

@@ -10,42 +10,84 @@ const navItems = [
   { href: '/writing', label: 'Writing' },
   { href: '/contact', label: 'Contact' },
 ];
+
+const currentPath = new URL(Astro.request.url).pathname;
 ---
 
-<header class="sticky top-0 z-40 border-b border-primary/10 bg-background/80 dark:bg-dark-background/80 backdrop-blur-sm">
-  <nav class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
-    <div>
-      <a href="/" class="block">
-        <img 
-          src={WordMarkLight} 
-          alt="AST Logo" 
-          class="block dark:hidden"
-          style="height: 48px; width: auto; filter: var(--svg-filter);"
-        />
-        <img 
-          src={WordMarkDark} 
-          alt="AST Logo" 
-          class="hidden dark:block"
-          style="height: 48px; width: auto; filter: var(--svg-filter);"
-        />
+<header class="sticky top-0 z-40 w-full border-b border-primary/10 bg-background/80 dark:bg-dark-background/80 backdrop-blur-sm transition-[background-color,border-color] duration-300">
+  <nav class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center h-[70px]">
+    <div class="flex-shrink-0 w-[200px]">
+      <a href="/" class="block relative" id="home-link" transition:name="logo" transition:persist>
+        <div class="relative w-[200px] h-12">
+          <img 
+            src={WordMarkLight} 
+            alt="AST Logo" 
+            class="absolute inset-0 block dark:hidden w-full h-full object-contain transition-all duration-300"
+            style="filter: var(--svg-filter);"
+          />
+          <img 
+            src={WordMarkDark} 
+            alt="AST Logo" 
+            class="absolute inset-0 hidden dark:block w-full h-full object-contain transition-all duration-300"
+            style="filter: var(--svg-filter);"
+          />
+        </div>
       </a>
     </div>
 
     <!-- Desktop Navigation -->
     <div class="hidden md:flex items-center space-x-8">
-      {navItems.map(item => (
-        <a 
-          href={item.href} 
-          class="text-accent dark:text-link-dark-base hover:text-primary dark:hover:text-link-dark-hover transition-colors"
-        >
-          {item.label}
-        </a>
-      ))}
+      {navItems.map(item => {
+        const isActive = currentPath === item.href;
+        return (
+          <a 
+            href={item.href} 
+            class:list={[
+              "relative py-1 text-accent dark:text-link-dark-base transition-colors duration-300",
+              isActive ? "text-primary dark:text-link-dark-hover" : "hover:text-primary dark:hover:text-link-dark-hover"
+            ]}
+            transition:name={`nav-link-${item.label}`}
+            transition:persist
+          >
+            {item.label}
+          </a>
+        );
+      })}
     </div>
 
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-4 flex-shrink-0 w-[100px] justify-end">
       <ThemeToggle client:load />
       <MobileMenu client:load items={navItems} />
     </div>
   </nav>
 </header>
+
+<script>
+  // Script to handle home link clicks
+  document.addEventListener('astro:page-load', () => {
+    const homeLink = document.getElementById('home-link');
+    if (homeLink) {
+      homeLink.addEventListener('click', (e) => {
+        // Only force refresh if we're already on the homepage
+        if (window.location.pathname === '/' || window.location.pathname === '') {
+          e.preventDefault();
+          window.location.reload();
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Prevent layout shift during transitions */
+  header {
+    contain: layout;
+    contain-intrinsic-size: 70px;
+  }
+
+  /* Ensure links maintain their position */
+  a {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+</style>
