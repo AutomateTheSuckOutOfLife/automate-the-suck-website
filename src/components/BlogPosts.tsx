@@ -23,94 +23,157 @@ const blogPosts: BlogPost[] = [
     date: "2025-03-10",
     category: "UX Design",
     content: `
-<h2>The Journey of Creating Our Digital Home</h2>
+# Behind the Design: Automate the Suck Out of Life
 
-In this article, I'll take you behind the scenes of our website redesign process, from initial concept to final implementation. As both a UX designer and the co-founder of Automate the Suck Out of Life, this project was particularly meaningful to me.
+## The Beginning
+I have spent my whole twenties trying to figure out this whole "adulting" thing, and if I have heard one common sentiment of my fellow zillenials, it is this: It sucks.
 
+Of course, there are amazing things that come with being an adult, but you never realize how much more of your life is taken up by "adulting" tasks until you're out of the house and doing it on your own. *(Did you know you need to clean your cleaning machines??)*
+
+My husband, Dylan, and I have been navigating life together since our early twenties and have taken on these new "adulting" tasks together. We always found ourselves thinking, *"How do people do this?"* Or rather, *"How do people do this and still have time for all of the things they actually want to do?"*
+
+We discovered that truly wealthy people often hire out for the tasks they don't want to put their time towards. For some, their time is a more finite resource than money, so they put their money towards hiring people to do the tasks that take up too much of their time (cleaning, financial planning, laundry, cooking, etc.).
+
+Dylan and I wanted to experience the luxuries of not having to do "adulting" tasks and made it our personal mission to automate, or at least streamline, as many of these tedious tasks as possible. As we started making these improvements in our own lives, we wanted to share our findings and help others find their own ways of reclaiming their time.
+
+This brought us to founding our nonprofit, **Automate the Suck Out of Life (ATSOL).**
+
+We are so excited to share more of our story and create more resources as we continue our work. I wanted to kick off our new site with a **behind-the-scenes look at the design and development process.**
+
+---
+
+## Behind the Design
+### What's in a Name?
+The design process truly started when Dylan and I came up with the name. We are both huge fans of **Hank and John Green** (DFTBA, Nerdfighteria!) and have been incredibly inspired by their work. They founded **The Foundation to Decrease World Suck**, a charity-driven initiative to make the world a better place.
+
+While chatting about our dreams for ATSOL, Dylan said, *"I kinda want to call it Automate the Suck Out of Life."* I loved it—straight to the point, a little edgy (kinda sounds like *automate the f*** out of life* hehe), and perfectly aligned with our mission.
+
+---
+
+## Logo and Wordmark
+I started the visual design by experimenting in **Canva**. I played with different arrangements of "Automate the Suck Out of Life" and refined the spacing and sizing until it felt balanced.
 <!-- embed-0 -->
 
-## Starting with Purpose
-
-Every design decision begins with understanding the "why" behind it. For us, the website needed to:
-
-1. Clearly communicate our mission of making technology accessible to everyone
-2. Showcase our projects in an engaging way
-3. Provide valuable resources for visitors
-4. Reflect our values of simplicity, accessibility, and empowerment
-
-## The Design Process
-
-Our design journey involved several key phases:
-
-### Research & Discovery
-We began by analyzing other nonprofit tech organizations, educational platforms, and automation resources. We wanted to understand what worked well and where there were opportunities to stand out.
-
-### Brand Development
-The name "Automate the Suck Out of Life" already had a distinct personality - approachable, slightly irreverent, and focused on solving real problems. We needed a visual identity that matched.
-
+#### **The Robot Vacuum Inspiration**
+Dylan and I have introduced a lot of automation into our daily routines, and one of the first real game-changers was our **robot vacuum**. When we lived in our first apartment, vacuuming was a constant task. When we finally got a **Roomba (which we lovingly named Succ),** I realized how much mental space and time I had freed up by automating just one task.
 <!-- embed-1 -->
 
-### User Experience Design
-We mapped out the ideal user journeys for different visitors - from curious newcomers to people looking for specific automation solutions. This helped us structure the site in a way that would be intuitive and helpful.
-
-### Visual Design
-Our color palette combines soothing greens with warm accents, creating a balance between technology and humanity. The typography pairs a clean sans-serif for body text with a more distinctive serif for headings.
-
-## Technical Implementation
-
-For the technical stack, we chose:
-
-- **Astro**: For its excellent performance and component-based architecture
-- **Tailwind CSS**: For rapid styling and consistent design
-- **TypeScript**: For type safety and better developer experience
-- **Netlify**: For seamless deployment and form handling
-
+That experience was pivotal, and I wanted to represent that feeling in our brand identity. That's why I started designing a **simple robot vacuum icon.**
 <!-- embed-2 -->
 
-## Accessibility Considerations
+#### **Incorporating the Lightning Bolt** 
+As I refined the logo, I wanted to introduce an additional visual element that represented power, speed, and automation. After brainstorming different symbols—including a spiral (representing suction) and a magic wand (symbolizing effortless transformation)—I landed on the lightning bolt.
 
-Accessibility wasn't an afterthought - it was built into every decision:
-
-- Semantic HTML structure
-- WCAG 2.1 AA compliant color contrast
-- Keyboard navigation support
-- Responsive design for all device sizes
-- Dark mode for reduced eye strain
-
-## Challenges & Solutions
-
-No project is without its challenges. Some of the hurdles we faced included:
-
-1. **Balancing information density**: We had a lot to share but didn't want to overwhelm visitors. Solution: Progressive disclosure of information and clear visual hierarchy.
-
-2. **Performance optimization**: Ensuring fast load times while including rich visuals. Solution: Image optimization, lazy loading, and leveraging Astro's partial hydration.
-
-3. **Consistent styling across components**: Maintaining visual consistency across different page templates. Solution: Creating a robust design system with Tailwind CSS.
-
-<!-- embed-3 -->
-
-## Lessons Learned
-
-Throughout this process, we learned valuable lessons that might help others embarking on similar projects:
-
-- Start with clear goals and user needs before diving into visual design
-- Test early and often with real users
-- Don't be afraid to iterate and refine based on feedback
-- Document design decisions for future reference
-
-## Looking Forward
-
-This website is just the beginning. As we grow and evolve, so too will our digital presence. We've built the foundation with flexibility in mind, allowing us to easily add new content, features, and improvements.
-
-We'd love to hear your thoughts on our new design! Feel free to reach out with feedback or questions.
-
+The lightning bolt felt like the perfect symbol for the energy and efficiency of automation. It also had a personal connection—Dylan and I had been re-reading Harry Potter, and the lightning bolt became a small nod to that, as well as a reference to electricity and technology powering automation. Plus, one of our favorite songs that year, Monster by Yung Lean, had lightning imagery in its lyrics, which just felt right for our branding.
+Once I finalized the lightning bolt as a key design element, I explored different ways to integrate it into the wordmark and accompanying iconography. I played with different placements in Freeform on my iPad before finalizing the design in Canva and Figma.
 <!-- embed-4 -->
 
-<h2>Acknowledgments</h2>
+#### **Color Palette & Typography**
+I chose a **green color palette** because I wanted our brand to feel **modern, clean, and approachable.** Our goal is to empower people to use technology to improve their lives, so I wanted the branding to feel **practical and DIY-friendly.**
+<!-- embed-3 -->
 
-A special thanks to everyone who contributed to this project, provided feedback, and helped us create a digital home that truly represents our mission and values.
+Typography choices:
+- **Nourd (sans-serif)**: Clean and modern for the wordmark.
+- **Roboto Slab**: Used for headings to add some structure.
+<!-- embed-5 -->
+- **Roboto (sans-serif)**: Readable, professional body text.
+<!-- embed-6 -->
+- **Roboto Mono**: A monospaced font for accents like buttons.
+
+---
+
+## Building the Website
+### **Tech Stack & Implementation**
+Once I finalized the designs in **Figma**, I moved to development using:
+- **Astro** (Framework)
+- **CSS** (Styling)
+- **JavaScript & TypeScript** (Interactivity & Logic)
+
+I leveraged **Cursor AI** to streamline my coding process. Instead of writing everything from scratch, I used Cursor to **generate boilerplate code, debug issues, and refine styling.** This significantly reduced development time and helped me focus on user experience.
+
+### **Mobile-First Design**
+Given that most users access websites on mobile first, I prioritized **mobile-first design**:
+- **Readability**: Ensuring clear typography and accessible contrast.
+- **Navigation**: Keeping the menu intuitive and easy to use on smaller screens.
+- **Performance**: Optimizing load times with lightweight assets and efficient code.
+<!-- embed-7 -->
+<!-- embed-8 -->
+
+---
+
+## Final Thoughts
+One of my favorite elements of the design is the **hero section**, where our **Roomba-inspired logo "sucks up" dirt elements** (represented by an asterisk ✱ as a nod to the Forever Notes Framework). This animation ties the branding and functionality together in an engaging way.
+<!-- embed-9 -->
+
+Building this site was an incredibly fun experience, and I love that the branding turned out to be **both creative and professional**. I'm excited to continue growing **Automate the Suck Out of Life** and sharing more projects in the future.
+
+### **Want to Support Us?**
+- Follow us on **[GitHub](#), [LinkedIn](#), [Instagram](#), and [Bluesky](#)**.
+- Check out the **live site here: [insert link]**.
+- Let me know your thoughts—I'd love your feedback!
+
 `,
     embeds: [
+      {
+        type: 'image',
+        url: '/images/blog/behind-the-design/post1-logo-process.png',
+        alt: 'Logo Design Process',
+        caption: 'Exploring different logo concepts and iterations'
+      },
+      {
+        type: 'image',
+        url: '/images/blog/behind-the-design/post2-logo-process.png',
+        alt: 'Robot Vacuum Inspiration',
+        caption: 'Our robot vacuum was the inspiration for our logo design'
+      },
+      {
+        type: 'image',
+        url: '/images/blog/behind-the-design/post4-logo-process.png',
+        alt: 'Robot Vacuum Icon Design',
+        caption: 'Designing a simple robot vacuum icon for our brand'
+      },
+      {
+        type: 'image',
+        url: '/images/blog/behind-the-design/post5-logo-process.png',
+        alt: 'Color Palette Development',
+        caption: 'Developing our green color palette for a modern, clean feel'
+      },
+      {
+        type: 'image',
+        url: '/images/blog/behind-the-design/post7-finwordmark.png',
+        alt: 'Final Wordmark Design',
+        caption: 'The final wordmark design for Automate the Suck Out of Life'
+      },
+      {
+        type: 'image',
+        url: '/images/blog/behind-the-design/post9-type.png',
+        alt: 'Typography Selection',
+        caption: 'Our typography choices for headings and body text'
+      },
+      {
+        type: 'image',
+        url: '/images/blog/behind-the-design/post8-colors.png',
+        alt: 'Color Palette',
+        caption: 'The final color palette used throughout our branding and website'
+      },
+      {
+        type: 'image',
+        url: '/images/blog/behind-the-design/post10-wireframes-paper.png',
+        alt: 'Paper Wireframes',
+        caption: 'Initial wireframes sketched on paper to plan the website layout'
+      },
+      {
+        type: 'image',
+        url: '/images/blog/behind-the-design/post11-wireframes-figma.png',
+        alt: 'Figma Wireframes',
+        caption: 'Digital wireframes created in Figma to refine the website design'
+      },
+      {
+        type: 'image',
+        url: '/images/blog/behind-the-design/heroatsol.gif',
+        alt: 'Hero Animation',
+        caption: 'The hero section animation showing our Roomba-inspired logo "sucking up" dirt elements'
+      },
       {
         type: 'image',
         url: '/images/blog/behind-the-design/website-mockup.jpg',
