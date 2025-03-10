@@ -17,6 +17,133 @@ type BlogPost = {
 
 const blogPosts: BlogPost[] = [
   {
+    id: 'behind-the-design',
+    title: "Behind the Design: Automate the Suck Out of Life",
+    subtitle: "A deep dive into the branding, design, and development process behind Automate the Suck Out of Life's new website.",
+    date: "2025-03-10",
+    category: "UX Design",
+    content: `
+<h2>The Journey of Creating Our Digital Home</h2>
+
+In this article, I'll take you behind the scenes of our website redesign process, from initial concept to final implementation. As both a UX designer and the co-founder of Automate the Suck Out of Life, this project was particularly meaningful to me.
+
+<!-- embed-0 -->
+
+## Starting with Purpose
+
+Every design decision begins with understanding the "why" behind it. For us, the website needed to:
+
+1. Clearly communicate our mission of making technology accessible to everyone
+2. Showcase our projects in an engaging way
+3. Provide valuable resources for visitors
+4. Reflect our values of simplicity, accessibility, and empowerment
+
+## The Design Process
+
+Our design journey involved several key phases:
+
+### Research & Discovery
+We began by analyzing other nonprofit tech organizations, educational platforms, and automation resources. We wanted to understand what worked well and where there were opportunities to stand out.
+
+### Brand Development
+The name "Automate the Suck Out of Life" already had a distinct personality - approachable, slightly irreverent, and focused on solving real problems. We needed a visual identity that matched.
+
+<!-- embed-1 -->
+
+### User Experience Design
+We mapped out the ideal user journeys for different visitors - from curious newcomers to people looking for specific automation solutions. This helped us structure the site in a way that would be intuitive and helpful.
+
+### Visual Design
+Our color palette combines soothing greens with warm accents, creating a balance between technology and humanity. The typography pairs a clean sans-serif for body text with a more distinctive serif for headings.
+
+## Technical Implementation
+
+For the technical stack, we chose:
+
+- **Astro**: For its excellent performance and component-based architecture
+- **Tailwind CSS**: For rapid styling and consistent design
+- **TypeScript**: For type safety and better developer experience
+- **Netlify**: For seamless deployment and form handling
+
+<!-- embed-2 -->
+
+## Accessibility Considerations
+
+Accessibility wasn't an afterthought - it was built into every decision:
+
+- Semantic HTML structure
+- WCAG 2.1 AA compliant color contrast
+- Keyboard navigation support
+- Responsive design for all device sizes
+- Dark mode for reduced eye strain
+
+## Challenges & Solutions
+
+No project is without its challenges. Some of the hurdles we faced included:
+
+1. **Balancing information density**: We had a lot to share but didn't want to overwhelm visitors. Solution: Progressive disclosure of information and clear visual hierarchy.
+
+2. **Performance optimization**: Ensuring fast load times while including rich visuals. Solution: Image optimization, lazy loading, and leveraging Astro's partial hydration.
+
+3. **Consistent styling across components**: Maintaining visual consistency across different page templates. Solution: Creating a robust design system with Tailwind CSS.
+
+<!-- embed-3 -->
+
+## Lessons Learned
+
+Throughout this process, we learned valuable lessons that might help others embarking on similar projects:
+
+- Start with clear goals and user needs before diving into visual design
+- Test early and often with real users
+- Don't be afraid to iterate and refine based on feedback
+- Document design decisions for future reference
+
+## Looking Forward
+
+This website is just the beginning. As we grow and evolve, so too will our digital presence. We've built the foundation with flexibility in mind, allowing us to easily add new content, features, and improvements.
+
+We'd love to hear your thoughts on our new design! Feel free to reach out with feedback or questions.
+
+<!-- embed-4 -->
+
+<h2>Acknowledgments</h2>
+
+A special thanks to everyone who contributed to this project, provided feedback, and helped us create a digital home that truly represents our mission and values.
+`,
+    embeds: [
+      {
+        type: 'image',
+        url: '/images/blog/behind-the-design/website-mockup.jpg',
+        alt: 'Website mockup showing the design process',
+        caption: 'Early mockups of the website design'
+      },
+      {
+        type: 'image',
+        url: '/images/blog/behind-the-design/color-palette.jpg',
+        alt: 'Color palette and typography samples',
+        caption: 'Our color palette and typography choices reflect our brand values'
+      },
+      {
+        type: 'image',
+        url: '/images/blog/behind-the-design/code-editor.jpg',
+        alt: 'Code editor showing Astro components',
+        caption: 'Building with Astro allowed for a component-based architecture'
+      },
+      {
+        type: 'image',
+        url: '/images/blog/behind-the-design/responsive-views.jpg',
+        alt: 'Website shown on multiple devices',
+        caption: 'Testing responsive layouts across different device sizes'
+      },
+      {
+        type: 'image',
+        url: '/images/blog/behind-the-design/final-homepage.jpg',
+        alt: 'Final homepage design',
+        caption: 'The finished homepage balances information with visual appeal'
+      }
+    ]
+  },
+  {
     id: 'shortcuts-instead-of-apps',
     title: "You Don't Need Another App: Build a Shortcut Instead",
     subtitle: "There's an app for that...but why not take back control and make your own?",
