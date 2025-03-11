@@ -21,7 +21,7 @@ const ogImageUrl = `${siteUrl}/images/ast-logo.svg`;
     <meta name="description" content={siteDescription} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;500;600&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@400;500;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     
@@ -121,5 +121,14 @@ const ogImageUrl = `${siteUrl}/images/ast-logo.svg`;
     ::view-transition-new(*) {
       animation: none !important;
     }
+  }
+
+  /* Apply Roboto Mono to all buttons */
+  a[class*="bg-"][class*="rounded-full"],
+  button[class*="bg-"][class*="rounded-full"],
+  .btn, 
+  [class*="px-"][class*="py-"][class*="rounded-full"] {
+    font-family: 'Roboto Mono', monospace !important;
+    letter-spacing: -0.01em;
   }
 </style>

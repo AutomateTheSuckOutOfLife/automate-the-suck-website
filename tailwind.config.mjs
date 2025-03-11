@@ -47,8 +47,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Source Sans Pro', 'system-ui', 'sans-serif'],
+        sans: ['Roboto', 'system-ui', 'sans-serif'],
         serif: ['Roboto Slab', 'Georgia', 'serif'],
+        mono: ['Roboto Mono', 'monospace'],
       },
     },
   },

@@ -42,6 +42,13 @@ const sortedPosts = [...blogPosts].sort((a, b) => {
                   </span>
                 </div>
               )}
+              {article.author && (
+                <div class="mt-2">
+                  <span class="text-sm text-accent/70 dark:text-dark-text/70 font-medium">
+                    By {article.author}
+                  </span>
+                </div>
+              )}
             </div>
             <div class="md:w-3/4">
               <h2 class="text-2xl font-serif font-bold text-accent dark:text-dark-text mb-3">

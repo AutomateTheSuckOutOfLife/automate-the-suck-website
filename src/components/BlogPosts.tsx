@@ -7,6 +7,7 @@ type BlogPost = {
   content: string;
   date?: string;
   category?: string;
+  author?: string;
   embeds?: {
     type: 'image' | 'video';
     url: string;
@@ -22,8 +23,9 @@ const blogPosts: BlogPost[] = [
     subtitle: "A deep dive into the branding, design, and development process behind Automate the Suck Out of Life's new website.",
     date: "2025-03-10",
     category: "UX Design",
+    author: "Kaitlin Isaac",
     content: `
-# Behind the Design: Automate the Suck Out of Life
+
 
 ## The Beginning
 I have spent my whole twenties trying to figure out this whole "adulting" thing, and if I have heard one common sentiment of my fellow zillenials, it is this: It sucks.
@@ -36,7 +38,7 @@ We discovered that truly wealthy people often hire out for the tasks they don't 
 
 Dylan and I wanted to experience the luxuries of not having to do "adulting" tasks and made it our personal mission to automate, or at least streamline, as many of these tedious tasks as possible. As we started making these improvements in our own lives, we wanted to share our findings and help others find their own ways of reclaiming their time.
 
-This brought us to founding our nonprofit, **Automate the Suck Out of Life (ATSOL).**
+This brought us to founding our nonprofit, **Automate the Suck Out of Life.**
 
 We are so excited to share more of our story and create more resources as we continue our work. I wanted to kick off our new site with a **behind-the-scenes look at the design and development process.**
 
@@ -44,7 +46,7 @@ We are so excited to share more of our story and create more resources as we con
 
 ## Behind the Design
 ### What's in a Name?
-The design process truly started when Dylan and I came up with the name. We are both huge fans of **Hank and John Green** (DFTBA, Nerdfighteria!) and have been incredibly inspired by their work. They founded **The Foundation to Decrease World Suck**, a charity-driven initiative to make the world a better place.
+The design process truly started when Dylan and I came up with the name. We are both huge fans of **Hank and John Green** (DFTBA, Nerdfighteria!) and have been incredibly inspired by their work. They founded **[The Foundation to Decrease World Suck](https://fightworldsuck.org/)**, a charity-driven initiative to make the world a better place.
 
 While chatting about our dreams for ATSOL, Dylan said, *"I kinda want to call it Automate the Suck Out of Life."* I loved it—straight to the point, a little edgy (kinda sounds like *automate the f*** out of life* hehe), and perfectly aligned with our mission.
 
@@ -56,29 +58,31 @@ I started the visual design by experimenting in **Canva**. I played with differe
 
 #### **The Robot Vacuum Inspiration**
 Dylan and I have introduced a lot of automation into our daily routines, and one of the first real game-changers was our **robot vacuum**. When we lived in our first apartment, vacuuming was a constant task. When we finally got a **Roomba (which we lovingly named Succ),** I realized how much mental space and time I had freed up by automating just one task.
-<!-- embed-1 -->
+
 
 That experience was pivotal, and I wanted to represent that feeling in our brand identity. That's why I started designing a **simple robot vacuum icon.**
-<!-- embed-2 -->
+<!-- embed-1 -->
+
 
 #### **Incorporating the Lightning Bolt** 
 As I refined the logo, I wanted to introduce an additional visual element that represented power, speed, and automation. After brainstorming different symbols—including a spiral (representing suction) and a magic wand (symbolizing effortless transformation)—I landed on the lightning bolt.
-
+<!-- embed-2 -->
 The lightning bolt felt like the perfect symbol for the energy and efficiency of automation. It also had a personal connection—Dylan and I had been re-reading Harry Potter, and the lightning bolt became a small nod to that, as well as a reference to electricity and technology powering automation. Plus, one of our favorite songs that year, Monster by Yung Lean, had lightning imagery in its lyrics, which just felt right for our branding.
 Once I finalized the lightning bolt as a key design element, I explored different ways to integrate it into the wordmark and accompanying iconography. I played with different placements in Freeform on my iPad before finalizing the design in Canva and Figma.
+<!-- embed-3 -->
 <!-- embed-4 -->
 
 #### **Color Palette & Typography**
 I chose a **green color palette** because I wanted our brand to feel **modern, clean, and approachable.** Our goal is to empower people to use technology to improve their lives, so I wanted the branding to feel **practical and DIY-friendly.**
-<!-- embed-3 -->
+<!-- embed-7 -->
+
 
 Typography choices:
 - **Nourd (sans-serif)**: Clean and modern for the wordmark.
 - **Roboto Slab**: Used for headings to add some structure.
-<!-- embed-5 -->
 - **Roboto (sans-serif)**: Readable, professional body text.
-<!-- embed-6 -->
 - **Roboto Mono**: A monospaced font for accents like buttons.
+<!-- embed-5 -->
 
 ---
 
@@ -88,6 +92,8 @@ Once I finalized the designs in **Figma**, I moved to development using:
 - **Astro** (Framework)
 - **CSS** (Styling)
 - **JavaScript & TypeScript** (Interactivity & Logic)
+<!-- embed-6 -->
+
 
 I leveraged **Cursor AI** to streamline my coding process. Instead of writing everything from scratch, I used Cursor to **generate boilerplate code, debug issues, and refine styling.** This significantly reduced development time and helped me focus on user experience.
 
@@ -96,20 +102,21 @@ Given that most users access websites on mobile first, I prioritized **mobile-fi
 - **Readability**: Ensuring clear typography and accessible contrast.
 - **Navigation**: Keeping the menu intuitive and easy to use on smaller screens.
 - **Performance**: Optimizing load times with lightweight assets and efficient code.
-<!-- embed-7 -->
 <!-- embed-8 -->
+<!-- embed-9 -->
+
 
 ---
 
 ## Final Thoughts
 One of my favorite elements of the design is the **hero section**, where our **Roomba-inspired logo "sucks up" dirt elements** (represented by an asterisk ✱ as a nod to the Forever Notes Framework). This animation ties the branding and functionality together in an engaging way.
-<!-- embed-9 -->
+<!-- embed-10 -->
 
 Building this site was an incredibly fun experience, and I love that the branding turned out to be **both creative and professional**. I'm excited to continue growing **Automate the Suck Out of Life** and sharing more projects in the future.
 
 ### **Want to Support Us?**
-- Follow us on **[GitHub](#), [LinkedIn](#), [Instagram](#), and [Bluesky](#)**.
-- Check out the **live site here: [insert link]**.
+- Follow us on **[GitHub](https://github.com/AutomateTheSuckOutOfLife/automate-the-suck-website), [LinkedIn](https://www.linkedin.com/company/automate-the-suck-out-of-life/?viewAsMember=true), [Instagram](https://www.instagram.com/automatethesuckoutof.life), and [Bluesky](https://bsky.app/profile/automatethesuck.bsky.social)**.
+- Check out the **[live site here](https://automatethesuckoutof.life/)**.
 - Let me know your thoughts—I'd love your feedback!
 
 `,
@@ -149,6 +156,12 @@ Building this site was an incredibly fun experience, and I love that the brandin
         url: '/images/blog/behind-the-design/post9-type.png',
         alt: 'Typography Selection',
         caption: 'Our typography choices for headings and body text'
+      },
+      {
+        type: 'image',
+        url: '/images/blog/behind-the-design/post-languages.png',
+        alt: 'Language breakdown of the website codebase',
+        caption: 'The website is primarily built with Astro (72.5%), TypeScript (24.7%), and JavaScript (1.8%)'
       },
       {
         type: 'image',
@@ -212,6 +225,7 @@ Building this site was an incredibly fun experience, and I love that the brandin
     subtitle: "There's an app for that...but why not take back control and make your own?",
     date: "2025-01-09",
     category: "Automation",
+    author: "Kaitlin Isaac",
     content: `
 <h2>Have you ever found yourself thinking "I wish there was an app that could..." only to find that the perfect app doesn't exist? Or maybe it does exist, but it's either too expensive, too complicated, or just doesn't quite do what you want it to do. Well, I'm here to tell you that you might not need another app at all. Instead, you might just need a Shortcut.</h2>
 

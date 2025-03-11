@@ -55,9 +55,14 @@ const htmlContent = insertEmbeds(markedContent, post.embeds);
 <Layout title={`${post.title} | Writing`}>
   <article class="max-w-2xl mx-auto px-4 py-16">
     <header class="mb-8">
-      <h1 class="text-4xl font-serif font-bold text-accent dark:text-dark-text mb-4">{post.title}</h1>
-      <p class="text-accent/80 dark:text-dark-text/80 italic mb-4">{post.subtitle}</p>
-      <div class="flex gap-4 text-sm text-accent/60 dark:text-dark-text/60">
+      <h1 class="text-5xl font-serif font-bold text-accent dark:text-dark-text mb-4">{post.title}</h1>
+      <p class="text-xl text-accent/80 dark:text-dark-text/80 italic mb-4">{post.subtitle}</p>
+      <div class="flex flex-wrap gap-4 text-sm text-accent/60 dark:text-dark-text/60">
+        {post.author && (
+          <span class="font-medium text-accent/80 dark:text-dark-text/80">
+            By {post.author}
+          </span>
+        )}
         {post.date && (
           <time datetime={post.date}>
             {new Date(post.date).toLocaleDateString('en-US', {
@@ -76,7 +81,7 @@ const htmlContent = insertEmbeds(markedContent, post.embeds);
     </header>
     
     <div 
-      class="prose prose-lg prose-primary dark:prose-invert max-w-none text-accent dark:text-dark-text"
+      class="prose prose-xl prose-primary dark:prose-invert max-w-none text-accent dark:text-dark-text"
       set:html={htmlContent}
     />
     
@@ -105,6 +110,8 @@ const htmlContent = insertEmbeds(markedContent, post.embeds);
     --tw-prose-hr: theme('colors.primary' / 0.2);
     --tw-prose-th-borders: theme('colors.primary' / 0.2);
     --tw-prose-td-borders: theme('colors.primary' / 0.2);
+    font-size: 1.25rem !important; /* Larger base font size for better accessibility */
+    line-height: 1.75 !important;
   }
 
   :global(.dark .prose) {
@@ -119,6 +126,65 @@ const htmlContent = insertEmbeds(markedContent, post.embeds);
     --tw-prose-hr: theme('colors.dark.primary' / 0.2);
     --tw-prose-th-borders: theme('colors.dark.primary' / 0.2);
     --tw-prose-td-borders: theme('colors.dark.primary' / 0.2);
+  }
+
+  /* Custom heading styles to override Tailwind Typography defaults */
+  :global(.prose h2) {
+    font-size: 2.5rem !important; /* Much larger than default */
+    font-weight: 700 !important;
+    margin-top: 2rem !important;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.2 !important;
+    font-family: theme('fontFamily.serif') !important;
+    color: theme('colors.accent') !important;
+  }
+
+  :global(.dark .prose h2) {
+    color: theme('colors.dark.text') !important;
+  }
+
+  /* Adjust h3 for better hierarchy */
+  :global(.prose h3) {
+    font-size: 1.75rem !important;
+    font-weight: 600 !important;
+    margin-top: 1.75rem !important;
+    margin-bottom: 1rem !important;
+    font-family: theme('fontFamily.serif') !important;
+  }
+
+  /* Custom styling for h4 headings */
+  :global(.prose h4) {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+    font-family: theme('fontFamily.serif') !important;
+    color: theme('colors.primary') !important;
+  }
+
+  :global(.dark .prose h4) {
+    color: theme('colors.dark.accent') !important;
+  }
+
+  /* Improve paragraph spacing for better readability */
+  :global(.prose p) {
+    margin-top: 1.25em !important;
+    margin-bottom: 1.25em !important;
+  }
+
+  /* Custom link styling with hover effects */
+  :global(.prose a) {
+    text-decoration: none !important;
+    transition: all 0.2s ease-in-out !important;
+  }
+
+  :global(.prose a:hover) {
+    text-decoration: underline !important;
+    color: theme('colors.accent') !important;
+  }
+
+  :global(.dark .prose a:hover) {
+    color: theme('colors.dark.accent') !important;
   }
 
   /* Add styles for embedded content */
