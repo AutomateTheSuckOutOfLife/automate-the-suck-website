@@ -227,13 +227,13 @@ Building this site was an incredibly fun experience, and I love that the brandin
     category: "Automation",
     author: "Kaitlin Isaac",
     content: `
-<h2>Have you ever found yourself thinking "I wish there was an app that could..." only to find that the perfect app doesn't exist? Or maybe it does exist, but it's either too expensive, too complicated, or just doesn't quite do what you want it to do. Well, I'm here to tell you that you might not need another app at all. Instead, you might just need a Shortcut.</h2>
+<p><i>There's an app for that…but why not take back control and make your own?</i></p>
 
 <!-- embed-0 -->
 
-I've been using Shortcuts on my iPhone for years now, but I've recently started diving deeper into what's possible with them. And let me tell you, it's a lot more than you might think. With the integration of ChatGPT and other AI tools, the possibilities have expanded even further.
+Think of Shortcuts as a way to write mini custom apps for your iPhone. Whether automating daily tasks or creating something entirely new, Shortcuts gives you the power to make your phone truly work for you.
 
-Let me walk you through a recent example that might inspire you to create your own shortcuts instead of downloading yet another app.
+I’ve always been vaguely aware of the “Shortcuts” app on my phone and have had some simple premade ones that I never did much with (like “How many days until _____”), but I only recently really started using them. I was always intimidated by the workflow, and when I tried to make them previously, they often did not work out the way I had hoped for them to and I would get frustrated and give up.
 
 ## The Problem: Too Many Apps, Too Little Control
 
@@ -297,7 +297,7 @@ Happy automating!
     embeds: [
       {
         type: 'video',
-        url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        url: 'https://www.youtube.com/watch?v=szrsfeyLzyg&si=Rso8ma3vM2U7OJFU',
         alt: 'Demo of the Daily Log shortcut in action'
       },
       {
