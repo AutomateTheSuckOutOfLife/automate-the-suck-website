@@ -1,0 +1,114 @@
+---
+import Layout from './Layout.astro';
+import SocialFollow from '../components/SocialFollow.astro';
+import EmbeddedContent from '../components/EmbeddedContent.astro';
+import { format } from 'date-fns';
+
+interface Frontmatter {
+  title: string;
+  publishDate?: Date;
+  description?: string;
+  tags?: string[];
+  draft?: boolean;
+  author?: string;
+  category?: string;
+  image?: {
+    src: string;
+    alt: string;
+  };
+  embeds?: {
+    type: 'image' | 'video';
+    url: string;
+    alt?: string;
+    caption?: string;
+  }[];
+}
+
+const { frontmatter } = Astro.props;
+const { title, publishDate, description, tags, draft, author, category, image, embeds } = frontmatter as Frontmatter;
+
+const formattedDate = publishDate ? format(publishDate, 'MMMM d, yyyy') : '';
+---
+
+<Layout title={`${title} | Automate The Suck`}>
+  <main class="max-w-4xl mx-auto px-4 py-16">
+    <article class="max-w-3xl mx-auto">
+      {draft && (
+        <div class="mb-8 p-4 bg-button-light border-l-4 border-primary rounded dark:bg-dark-primary dark:border-link-dark-base" role="alert">
+          <p class="text-lg font-medium">📝 Work in Progress</p>
+          <p class="text-accent dark:text-dark-text">This is a draft post. Ideas and text are subject to change.</p>
+        </div>
+      )}
+      
+      <header class="mb-12 space-y-6">
+        <div class="space-y-2">
+          {publishDate && (
+            <time datetime={publishDate.toISOString()} 
+                  class="text-sm text-primary dark:text-link-dark-base font-mono">
+              {formattedDate}
+            </time>
+          )}
+          <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary dark:text-link-dark-base">{title}</h1>
+        </div>
+        
+        {description && (
+          <p class="text-xl text-accent dark:text-dark-text font-light">
+            {description}
+          </p>
+        )}
+        
+        <div class="flex flex-wrap items-center gap-4">
+          {author && (
+            <span class="text-sm text-accent/70 dark:text-dark-text/70">
+              By {author}
+            </span>
+          )}
+          
+          {category && (
+            <span class="inline-block bg-button-hover dark:bg-dark-primary text-primary dark:text-link-dark-base text-sm px-3 py-1 rounded-full">
+              {category}
+            </span>
+          )}
+        </div>
+        
+        {tags && tags.length > 0 && (
+          <div class="flex flex-wrap gap-2">
+            {tags.map((tag: string) => (
+              <span class="text-sm text-accent/60 dark:text-dark-text/60">
+                #{tag}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {image && (
+          <div class="mt-6">
+            <img 
+              src={image.src} 
+              alt={image.alt} 
+              class="w-full h-auto rounded-lg shadow-md"
+            />
+          </div>
+        )}
+      </header>
+
+      <div class="prose prose-lg max-w-none text-accent dark:text-dark-text prose-headings:text-primary dark:prose-headings:text-link-dark-base prose-a:text-link-base dark:prose-a:text-link-dark-base hover:prose-a:text-link-hover dark:hover:prose-a:text-link-dark-hover">
+        <slot />
+        
+        {/* Render embedded content after the main content */}
+        {embeds && embeds.length > 0 && (
+          <div class="mt-8 space-y-8">
+            <h2>Additional Resources</h2>
+            {embeds.map((embed) => (
+              <EmbeddedContent embed={embed} />
+            ))}
+          </div>
+        )}
+      </div>
+      
+      <div class="mt-16">
+        <SocialFollow />
+      </div>
+    </article>
+  </main>
+</Layout> 

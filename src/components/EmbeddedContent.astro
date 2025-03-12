@@ -1,0 +1,41 @@
+---
+interface Props {
+  embed: {
+    type: 'image' | 'video';
+    url: string;
+    alt?: string;
+    caption?: string;
+  };
+}
+
+const { embed } = Astro.props;
+---
+
+<figure class="my-8">
+  {embed.type === 'image' && (
+    <img 
+      src={embed.url} 
+      alt={embed.alt || ''} 
+      class="rounded-lg w-full h-auto shadow-md"
+    />
+  )}
+  
+  {embed.type === 'video' && (
+    <div class="aspect-video w-full rounded-lg overflow-hidden shadow-md">
+      <iframe
+        src={embed.url}
+        title={embed.alt || 'Embedded video'}
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        class="w-full h-full"
+      ></iframe>
+    </div>
+  )}
+  
+  {embed.caption && (
+    <figcaption class="text-center text-sm text-accent/70 dark:text-dark-text/70 mt-2">
+      {embed.caption}
+    </figcaption>
+  )}
+</figure> 
