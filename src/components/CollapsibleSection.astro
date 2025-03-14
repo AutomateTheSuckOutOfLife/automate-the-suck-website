@@ -1,0 +1,52 @@
+---
+interface Props {
+  title: string;
+  id?: string;
+}
+
+const { title, id = "collapsible-section" } = Astro.props;
+---
+
+<div class="border border-primary/20 dark:border-dark-primary/20 rounded-lg mb-12">
+  <button 
+    id={`${id}-toggle`} 
+    class="w-full flex justify-between items-center p-4 text-left bg-button-light dark:bg-dark-secondary rounded-t-lg"
+    aria-expanded="false"
+    aria-controls={`${id}-content`}
+  >
+    <h2 class="text-2xl font-serif font-bold text-accent dark:text-dark-text">{title}</h2>
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      class="h-6 w-6 transform transition-transform duration-300" 
+      id={`${id}-chevron`} 
+      fill="none" 
+      viewBox="0 0 24 24" 
+      stroke="currentColor"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+  
+  <div id={`${id}-content`} class="hidden p-6 border-t border-primary/20 dark:border-dark-primary/20">
+    <slot />
+  </div>
+</div>
+
+<script define:vars={{ id }}>
+  document.addEventListener('astro:page-load', () => {
+    const toggle = document.getElementById(`${id}-toggle`);
+    const content = document.getElementById(`${id}-content`);
+    const chevron = document.getElementById(`${id}-chevron`);
+    
+    if (toggle && content && chevron) {
+      toggle.addEventListener('click', () => {
+        content.classList.toggle('hidden');
+        chevron.classList.toggle('rotate-180');
+        
+        // Add aria attributes for accessibility
+        const isExpanded = !content.classList.contains('hidden');
+        toggle.setAttribute('aria-expanded', isExpanded.toString());
+      });
+    }
+  });
+</script> 

@@ -1,0 +1,115 @@
+---
+title: "Siri Shortcuts"
+publishDate: 2023-06-01
+description: "Siri Shortcuts are the magic built into your phone—and using them makes you the wizard. Create simple tools that do exactly what you need, without downloading another app or learning to code."
+tags: ["shortcuts", "automation", "productivity", "ios"]
+category: "Automation"
+draft: false
+headerImage: "/images/projects/headerimage-sirishortcut.png"
+headerImageAlt: "Siri Shortcuts on iPhone"
+---
+
+import CollapsibleSection from '../../../components/CollapsibleSection.astro';
+import ShortcutCard from '../../../components/ShortcutCard.astro';
+import ShortcutGrid from '../../../components/ShortcutGrid.astro';
+import CallToAction from '../../../components/CallToAction.astro';
+
+Siri Shortcuts are the magic built into your phone—and using them makes you the wizard. With them, you can create simple tools that do exactly what you need, without downloading another app or learning to code.
+
+Siri Shortcuts are built into iOS, iPadOS, macOS, and watchOS, and they work across Apple devices: iPhone, iPad, Mac, Apple Watch, and Apple Vision Pro. They work seamlessly across Apple devices, letting you automate tasks and simplify your daily life—no coding required.
+
+<CollapsibleSection title="How to Set Up Your First Siri Shortcut" id="setup">
+
+1. **Download a shortcut** from our Cloud share link. Follow these steps to set it up on your device:
+2. **Tap the link** in the Shortcuts section below to open the Shortcut in the Shortcuts app.
+3. If this is your first time using Shortcuts, you may be prompted to open the Shortcuts app. The system will prompt you to "Allow" untrusted shortcuts.
+4. **Review the shortcut** before adding it. You can see all the actions it will perform.
+5. **Tap "Add Shortcut"** in the App Store view and install it.
+6. If the shortcut includes special permissions (like accessing your contacts, or sending messages), you may need to tap "Allow" when prompted.
+
+### Customize Shortcuts
+
+Some shortcuts allow you to customize them to fit your needs. Use existing shortcuts as templates, modify them, and make them your own.
+
+### Run Your Shortcut
+
+Open the Shortcuts app, tap on your new shortcut, or trigger it using Siri by saying "Hey Siri, [Shortcut Name]".
+
+### Home Screen Access
+
+Add shortcuts to your home screen for quick access. Long-press the shortcut, select "Add to Home Screen," and it'll function just like an app!
+
+### Voice Activation
+
+Simply say "Hey Siri, [Shortcut Name]" — and the shortcut runs! Add to your morning routine, use it in the car, or add it to Home Screen widgets. Welcome to frictionless living.
+
+</CollapsibleSection>
+
+## Our Shortcuts
+
+<ShortcutGrid>
+  <ShortcutCard 
+    title="Microjournal"
+    emoji="📓"
+    tags={["Productivity", "Journaling"]}
+    description="A quick and simple way to log your thoughts, reflections, or key moments of the day. Perfect for capturing ideas or emotions in the moment."
+    requirements="Requires ChatGPT app to run"
+    downloadUrl="https://www.icloud.com/shortcuts/aa6fff3fe13547e591d32869cb534eaa"
+  />
+
+  <ShortcutCard 
+    title="What's My Workout"
+    emoji="🏋️‍♀️"
+    tags={["Health", "Fitness"]}
+    description="Helps you stick to your training plan by instantly telling you what your workout is for today or tomorrow at the touch of a button. No need to check a calendar—just tap and go!"
+    downloadUrl="https://www.icloud.com/shortcuts/3cecfa10a16e439da4db1e2e1a197f72"
+  />
+
+  <ShortcutCard 
+    title="Scales Test"
+    emoji="🎵"
+    tags={["Music", "Practice"]}
+    description="A music practice tool that randomly selects scales for you to play and allows you to rate your performance, automatically saving the results in your Notes app for tracking progress."
+    downloadUrl="https://www.icloud.com/shortcuts/5dfad0afb06045ddb7a1a4e95739a8fd"
+  />
+
+  <ShortcutCard 
+    title="Calculate Tip"
+    emoji="💰"
+    tags={["Finance", "Utility"]}
+    description="A fast tip calculator that helps you determine the total amount to pay, including different tip percentages, for easy bill splitting."
+    downloadUrl="https://www.icloud.com/shortcuts/adf728a52bc94f7c9e26cf3a559f4999"
+  />
+  
+  <ShortcutCard 
+    title="Share a Website"
+    emoji="🌐"
+    tags={["Sharing", "Utility"]}
+    description="Quickly Airdrop a website you want to share, like your personal site, social media, Etsy shop, or any other link you frequently send to others."
+    downloadUrl="https://www.icloud.com/shortcuts/762026e25f394cf69d54ac6d26474739"
+  />
+  
+  <ShortcutCard 
+    title="Pomodoro Break"
+    emoji="⏳"
+    tags={["Productivity", "Focus"]}
+    description="Provides a list of short break activities (5-minute or 15-minute) and sets a timer on your device to keep you on track before diving back into work or study."
+    downloadUrl="https://www.icloud.com/shortcuts/7adbf8a6bde349ce914a87929bfbd8a9"
+  />
+  
+  <ShortcutCard 
+    title="enCounter"
+    emoji="🔢"
+    tags={["Utility", "Tracking"]}
+    description="A simple counter tool to track anything, originally designed for counting Pokémon encounters while Shiny hunting. Also great for tallying crochet stitches, workout reps, or any other running count."
+    requirements="Requires DataJar app to run"
+    downloadUrl="https://www.icloud.com/shortcuts/5244fc3cfb0749b2a4ccedd01ce04c25"
+  />
+</ShortcutGrid>
+
+<CallToAction 
+  title="Have a shortcut idea?"
+  description="We're always looking to expand our collection of useful shortcuts. Let us know what you'd like to see!"
+  buttonText="Suggest a Shortcut"
+  buttonUrl="/contact"
+/> 

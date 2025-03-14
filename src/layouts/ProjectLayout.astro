@@ -11,22 +11,32 @@ interface Frontmatter {
   draft?: boolean;
   author?: string;
   category?: string;
-  // featuredImage is now imported directly in the MDX files
+  headerImage?: string;
+  headerImageAlt?: string;
 }
 
 const { frontmatter } = Astro.props;
-const { title, publishDate, description, tags, draft, author, category } = frontmatter as Frontmatter;
+const { title, publishDate, description, tags, draft, author, category, headerImage, headerImageAlt } = frontmatter as Frontmatter;
 
 const formattedDate = publishDate ? format(publishDate, 'MMMM d, yyyy') : '';
 ---
 
 <Layout title={`${title} | Automate The Suck`}>
   <main class="max-w-4xl mx-auto px-4 py-16">
+    <div class="mb-8">
+      <a href="/projects" class="inline-flex items-center text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+        </svg>
+        Back to Projects
+      </a>
+    </div>
+    
     <article class="max-w-3xl mx-auto">
       {draft && (
         <div class="mb-8 p-4 bg-button-light border-l-4 border-primary rounded dark:bg-dark-primary dark:border-link-dark-base" role="alert">
           <p class="text-lg font-medium">📝 Work in Progress</p>
-          <p class="text-accent dark:text-dark-text">This is a draft post. Ideas and text are subject to change.</p>
+          <p class="text-accent dark:text-dark-text">This is a draft project. Details and content are subject to change.</p>
         </div>
       )}
       
@@ -71,6 +81,16 @@ const formattedDate = publishDate ? format(publishDate, 'MMMM d, yyyy') : '';
           </div>
         )}
       </header>
+
+      {headerImage && (
+        <div class="mb-8 rounded-lg overflow-hidden">
+          <img 
+            src={headerImage}
+            alt={headerImageAlt || `Header image for ${title}`}
+            class="w-full h-auto object-cover"
+          />
+        </div>
+      )}
 
       <div class="prose prose-lg max-w-none text-accent dark:text-dark-text 
                   prose-headings:text-primary dark:prose-headings:text-link-dark-base 

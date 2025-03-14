@@ -1,0 +1,34 @@
+---
+interface Props {
+  title: string;
+  tags: string[];
+  description: string;
+  downloadUrl: string;
+  requirements?: string;
+  emoji?: string;
+}
+
+const { title, tags, description, downloadUrl, requirements, emoji = "" } = Astro.props;
+---
+
+<div class="bg-button-light dark:bg-dark-secondary border-2 border-primary dark:border-dark-primary rounded-lg p-6 hover:shadow-lg transition-shadow">
+  <h3 class="text-xl font-serif font-bold mb-2 dark:text-dark-text">{title} {emoji}</h3>
+  <p class="text-sm text-accent/70 dark:text-dark-text/70 mb-4">
+    {tags.map((tag) => `#${tag}`).join(" ")}
+  </p>
+  <p class="mb-2 dark:text-dark-text/80">{description}</p>
+  
+  {requirements && (
+    <p class="text-xs text-accent/60 dark:text-dark-text/60 italic mb-4">*{requirements}</p>
+  )}
+  
+  <a 
+    href={downloadUrl} 
+    class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-button-hover dark:bg-dark-primary text-accent dark:text-dark-text hover:bg-primary hover:text-white dark:hover:bg-link-dark-hover dark:hover:text-dark-background transition-all duration-200" 
+    aria-label={`Download ${title} shortcut`}
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+    </svg>
+  </a>
+</div> 

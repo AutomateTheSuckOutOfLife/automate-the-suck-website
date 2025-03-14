@@ -51,9 +51,58 @@ export default {
         serif: ['Roboto Slab', 'Georgia', 'serif'],
         mono: ['Roboto Mono', 'monospace'],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: 'none',
+            color: 'inherit',
+            a: {
+              color: 'inherit',
+              textDecoration: 'none',
+              fontWeight: 'normal',
+              '&:hover': {
+                color: 'inherit',
+                textDecoration: 'underline',
+              },
+            },
+            h1: {
+              color: 'inherit',
+              fontWeight: '700',
+            },
+            h2: {
+              color: 'inherit',
+              fontWeight: '700',
+            },
+            h3: {
+              color: 'inherit',
+              fontWeight: '600',
+            },
+            h4: {
+              color: 'inherit',
+              fontWeight: '600',
+            },
+            code: {
+              color: 'inherit',
+            },
+            pre: {
+              color: 'inherit',
+              backgroundColor: 'inherit',
+            },
+            strong: {
+              color: 'inherit',
+              fontWeight: '700',
+            },
+            blockquote: {
+              color: 'inherit',
+              borderLeftColor: 'inherit',
+            },
+          },
+        },
+      },
     },
   },
   plugins: [
     require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
   ],
 }

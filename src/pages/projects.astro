@@ -1,5 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SocialFollow from '../components/SocialFollow.astro';
+import { getCollection } from 'astro:content';
+import { format } from 'date-fns';
+
+// Get all projects from the content collection
+const projects = await getCollection('projects');
+
+// Filter out drafts in production
+const isDevelopment = import.meta.env.DEV;
+const filteredProjects = projects.filter(project => isDevelopment || !project.data.draft);
+
+// Sort projects by date
+const sortedProjects = filteredProjects.sort((a, b) => {
+  if (!a.data.publishDate || !b.data.publishDate) return 0;
+  return b.data.publishDate.getTime() - a.data.publishDate.getTime();
+});
 ---
 
 <Layout title="Projects | Automate The Suck">
@@ -76,21 +92,28 @@ import Layout from '../layouts/Layout.astro';
       <h2 class="text-3xl font-serif font-bold text-accent dark:text-dark-text mb-8">Featured Projects</h2>
       
       <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
-        <!-- Siri Shortcuts Project Card -->
-        <div class="bg-button-light dark:bg-dark-secondary border-2 border-primary dark:border-dark-primary rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-          <div class="aspect-video bg-[#FFFCEC] dark:bg-[#3A625C] flex items-center justify-center p-4">
-            <img src="/images/projects/headerimage-sirishortcut.png" alt="Siri Shortcuts on iPhone" class="max-h-full object-contain" />
+        {sortedProjects.map(project => (
+          <div class="bg-button-light dark:bg-dark-secondary border-2 border-primary dark:border-dark-primary rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+            {project.data.headerImage && (
+              <div class="aspect-video bg-[#FFFCEC] dark:bg-[#3A625C] flex items-center justify-center p-4">
+                <img src={project.data.headerImage} alt={project.data.headerImageAlt || `Header image for ${project.data.title}`} class="max-h-full object-contain" />
+              </div>
+            )}
+            <div class="p-6">
+              <h3 class="text-2xl font-serif font-bold text-accent dark:text-dark-text mb-2">{project.data.title}</h3>
+              <p class="text-accent/80 dark:text-dark-text/80 mb-4">{project.data.description}</p>
+              <a href={`/projects/${project.slug}`} class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors">Learn More →</a>
+            </div>
           </div>
-          <div class="p-6">
-            <h3 class="text-2xl font-serif font-bold text-accent dark:text-dark-text mb-2">Siri Shortcuts</h3>
-            <p class="text-accent/80 dark:text-dark-text/80 mb-4">Create simple tools that do exactly what you need, without downloading another app or learning to code. Our collection of ready-to-use shortcuts.</p>
-            <a href="/projects/siri-shortcuts" class="text-link-base hover:text-link-hover dark:text-link-dark-base dark:hover:text-link-dark-hover transition-colors">Learn More →</a>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
     
-    <div class="bg-primary dark:bg-dark-primary rounded-lg p-8 text-center">
+    <div class="mt-16">
+      <SocialFollow containerClass="w-full" />
+    </div>
+    
+    <div class="bg-primary dark:bg-dark-primary rounded-lg p-8 text-center mt-16">
       <h3 class="text-2xl font-serif font-bold text-white dark:text-dark-text mb-4">Interested in collaborating?</h3>
       <p class="text-white dark:text-dark-text mb-6">
         We're always looking for partners, contributors, and supporters to help us expand our impact.

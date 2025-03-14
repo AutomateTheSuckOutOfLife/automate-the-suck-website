@@ -1,0 +1,30 @@
+---
+interface Props {
+  id: string;
+  title?: string;
+  startAt?: number;
+}
+
+const { id, title = 'YouTube video player', startAt } = Astro.props;
+
+// Construct the YouTube URL with optional start time
+const youtubeUrl = `https://www.youtube.com/embed/${id}${startAt ? `?start=${startAt}` : ''}`;
+---
+
+<div class="my-8">
+  <div class="aspect-video w-full rounded-lg overflow-hidden shadow-md">
+    <iframe
+      src={youtubeUrl}
+      title={title}
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      class="w-full h-full"
+    ></iframe>
+  </div>
+  {title && title !== 'YouTube video player' && (
+    <p class="text-center text-sm text-accent/70 dark:text-dark-text/70 mt-2">
+      {title}
+    </p>
+  )}
+</div>

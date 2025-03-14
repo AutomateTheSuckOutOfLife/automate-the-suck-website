@@ -1,0 +1,95 @@
+---
+title: "Example MDX Post"
+publishDate: 2023-06-15
+description: "This is an example of using MDX with Astro to create rich, interactive content"
+tags: ["mdx", "astro", "tutorial"]
+type: "article"
+author: "Dylan Sheffer"
+category: "Development"
+draft: false
+---
+
+import LightningIcon from '../../../components/LightningIcon.astro';
+import ShuffleText from '../../../components/ShuffleText.tsx';
+import CalloutBox from '../../../components/CalloutBox.astro';
+import YouTubeEmbed from '../../../components/YouTubeEmbed.astro';
+import { Image } from 'astro:assets';
+
+# Welcome to MDX in Astro!
+
+This is an example of how you can use **MDX** to create rich, interactive content in your Astro site.
+
+<CalloutBox type="info" title="What is MDX?">
+  MDX is a format that lets you write JSX in your markdown content. You can import components, like interactive charts or alerts, and embed them within your content.
+</CalloutBox>
+
+## Using Components in Markdown
+
+One of the biggest advantages of MDX is the ability to use components directly in your markdown content.
+
+Here's an example of using the LightningIcon component:
+
+<div className="flex items-center gap-2 p-4 bg-button-light dark:bg-dark-primary rounded-lg">
+  <LightningIcon />
+  <p className="font-bold">Power up your content with components!</p>
+</div>
+
+## Interactive Components
+
+You can even include interactive React components:
+
+<ShuffleText />
+<p>This would be an interactive component that shuffles text on hover.</p>
+
+## Embedding Videos
+
+With the YouTubeEmbed component, you can easily embed videos in your content:
+
+<YouTubeEmbed 
+  id="szrsfeyLzyg" 
+  title="Demo of the Daily Log shortcut in action" 
+/>
+
+<CalloutBox type="warning">
+  Make sure to use the video ID from the YouTube URL, not the full URL itself.
+</CalloutBox>
+
+## Regular Markdown Still Works
+
+All the standard markdown features still work as expected:
+
+- Lists
+- **Bold text**
+- *Italic text*
+- [Links](https://automatethesuck.com)
+- > Blockquotes
+- `inline code`
+
+```js
+// Code blocks with syntax highlighting
+function hello() {
+  console.log("Hello, MDX!");
+}
+```
+
+## Images
+
+You can use standard markdown images, which will inherit the styling from the prose classes:
+
+{/* ![A beautiful landscape](./landscape.jpg) */}
+
+Or you can use HTML/JSX for more control:
+
+{/* <Image 
+  src={customImage} 
+  alt="Custom styled image" 
+  className="rounded-full w-48 h-48 mx-auto my-8 shadow-lg"
+/> */}
+
+<CalloutBox type="success" title="Accessibility Tip">
+  Always include descriptive alt text for your images to ensure they're accessible to everyone, including those using screen readers.
+</CalloutBox>
+
+## Conclusion
+
+MDX gives you the best of both worlds - the simplicity of markdown with the power of components. Enjoy creating rich, interactive content for your readers!

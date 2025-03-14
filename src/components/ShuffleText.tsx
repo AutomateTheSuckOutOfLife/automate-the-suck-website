@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 import hoverIcon from '../assets/hover.svg?url';
 
-const textOptions = [
-  'with Figma',
-  'for the classroom',
-  'by hand',
-  'with bolt'
-];
+interface ShuffleTextProps {
+  text?: string;
+}
 
-export default function ShuffleText() {
+export default function ShuffleText({ text }: ShuffleTextProps) {
+  const defaultOptions = [
+    'with Figma',
+    'for the classroom',
+    'by hand',
+    'with bolt'
+  ];
+  
+  const textOptions = text ? [text] : defaultOptions;
   const [currentText, setCurrentText] = useState(textOptions[0]);
 
   const shuffleText = () => {
+    if (textOptions.length === 1) return; // Don't shuffle if there's only one option
+    
     const currentIndex = textOptions.indexOf(currentText);
     const nextIndex = (currentIndex + 1) % textOptions.length;
     setCurrentText(textOptions[nextIndex]);

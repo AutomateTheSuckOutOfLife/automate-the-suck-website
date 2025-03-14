@@ -4,7 +4,11 @@ import WritingLayout from '../../layouts/WritingLayout.astro';
 
 // Generate static paths for all writing posts
 export async function getStaticPaths() {
-  const posts = await getCollection('writing');
+  const posts = await getCollection('writing', ({ data }) => {
+    // In production, exclude draft posts
+    return import.meta.env.PROD ? !data.draft : true;
+  });
+  
   return posts.map(post => ({
     params: { slug: post.slug },
     props: { post },
@@ -20,4 +24,4 @@ const { Content } = await post.render();
 
 <WritingLayout frontmatter={post.data}>
   <Content />
-</WritingLayout> 
+</WritingLayout>
